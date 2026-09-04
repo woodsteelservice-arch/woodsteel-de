@@ -1,0 +1,405 @@
+@import "tailwindcss";
+@plugin "@tailwindcss/typography";
+
+/* ===== WOODSTEEL BRAND THEME (Claude Code build) ===== */
+:root {
+  --color-brand-brown: #3f2211;
+  --color-brand-gold: #cbab58;
+  --color-brand-gold-hover: #b8973f;
+  --color-brand-cream: #ece4e0;
+  --color-brand-wood: #764d24;
+  --color-brand-charcoal: #2b1810;
+  --color-brand-muted: #8a7060;
+
+  --background: #ffffff;
+  --foreground: var(--color-brand-charcoal);
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+
+  --color-brown: var(--color-brand-brown);
+  --color-gold: var(--color-brand-gold);
+  --color-gold-hover: var(--color-brand-gold-hover);
+  --color-cream: var(--color-brand-cream);
+  --color-wood: var(--color-brand-wood);
+  --color-charcoal: var(--color-brand-charcoal);
+  --color-mutedbrand: var(--color-brand-muted);
+
+  --font-sans: var(--font-inter), -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  --font-display: var(--font-manrope), var(--font-inter), sans-serif;
+}
+
+@layer base {
+  html { scroll-behavior: smooth; }
+  body {
+    background: var(--background);
+    color: var(--foreground);
+    font-family: var(--font-sans);
+    font-feature-settings: "kern" 1, "liga" 1, "ss01" 1;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-display);
+    letter-spacing: -0.022em;
+    color: var(--color-brand-brown);
+  }
+  ::selection { background: var(--color-brand-gold); color: var(--color-brand-brown); }
+}
+
+@layer utilities {
+  .text-display-1 { font-size: clamp(2.5rem, 5.5vw, 4.75rem); line-height: 1.02; letter-spacing: -0.03em; }
+  .text-display-2 { font-size: clamp(2rem, 4vw, 3.25rem); line-height: 1.08; letter-spacing: -0.025em; }
+  .text-display-3 { font-size: clamp(1.5rem, 2.5vw, 2.25rem); line-height: 1.15; letter-spacing: -0.02em; }
+  .text-eyebrow { font-size: 0.75rem; letter-spacing: 0.18em; text-transform: uppercase; font-weight: 600; }
+
+  .reveal { animation: ws-reveal 0.9s cubic-bezier(0.2, 0.8, 0.2, 1) both; }
+  @keyframes ws-reveal {
+    from { opacity: 0; transform: translateY(24px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+  .stagger > * { animation: ws-reveal 0.9s cubic-bezier(0.2, 0.8, 0.2, 1) both; }
+  .stagger > *:nth-child(1) { animation-delay: 0ms; }
+  .stagger > *:nth-child(2) { animation-delay: 80ms; }
+  .stagger > *:nth-child(3) { animation-delay: 160ms; }
+  .stagger > *:nth-child(4) { animation-delay: 240ms; }
+  .stagger > *:nth-child(5) { animation-delay: 320ms; }
+  .stagger > *:nth-child(6) { animation-delay: 400ms; }
+
+  /* Modálne okno */
+  .ws-fade-in { animation: ws-fade 0.25s ease-out; }
+  @keyframes ws-fade {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+  }
+  .ws-dialog-in { animation: ws-dialog 0.35s cubic-bezier(0.2, 0.8, 0.2, 1); }
+  @keyframes ws-dialog {
+    from { transform: translateY(16px) scale(0.98); }
+    to   { transform: translateY(0) scale(1); }
+  }
+
+  /* Odhalenie pri scrollovaní — aktivuje komponent Reveal */
+  .ws-reveal {
+    opacity: 0;
+    transform: translateY(28px);
+    transition: opacity 0.8s cubic-bezier(0.2, 0.8, 0.2, 1),
+                transform 0.8s cubic-bezier(0.2, 0.8, 0.2, 1);
+    will-change: opacity, transform;
+  }
+  .ws-reveal.is-visible {
+    opacity: 1;
+    transform: none;
+  }
+  /* Bez JavaScriptu sa obsah nesmie skryť */
+  @media (scripting: none) {
+    .ws-reveal { opacity: 1; transform: none; }
+  }
+
+  /* Trvalo zvýraznené CTA v hlavičke — jemné dýchanie svetla a občasný prelesk */
+  .ws-cta {
+    position: relative;
+    overflow: hidden;
+    animation: ws-cta-glow 3.4s ease-in-out infinite;
+  }
+  @keyframes ws-cta-glow {
+    0%, 100% { box-shadow: 0 4px 18px rgba(203, 171, 88, 0.55); }
+    50%      { box-shadow: 0 8px 34px rgba(203, 171, 88, 0.95); }
+  }
+  /* Prstenec, ktorý sa z tlačidla ticho rozpína */
+  .ws-cta-halo { animation: ws-cta-halo 2.8s ease-out infinite; }
+  @keyframes ws-cta-halo {
+    0%   { opacity: 0.55; transform: scale(1); }
+    70%  { opacity: 0; transform: scale(1.28); }
+    100% { opacity: 0; transform: scale(1.28); }
+  }
+  .ws-cta::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      110deg,
+      transparent 35%,
+      rgba(255, 255, 255, 0.45) 50%,
+      transparent 65%
+    );
+    transform: translateX(-130%);
+    animation: ws-cta-sheen 5s ease-in-out infinite;
+    pointer-events: none;
+  }
+  @keyframes ws-cta-sheen {
+    0%, 55% { transform: translateX(-130%); }
+    85%     { transform: translateX(130%); }
+    100%    { transform: translateX(130%); }
+  }
+
+  /* Pomaly plávajúce svetlo v pásoch so štatistikami */
+  .ws-drift { animation: ws-drift 22s ease-in-out infinite alternate; }
+  @keyframes ws-drift {
+    from { transform: translate3d(0, 0, 0) scale(1); }
+    to   { transform: translate3d(40px, -24px, 0) scale(1.12); }
+  }
+  .ws-drift-slow { animation: ws-drift-slow 28s ease-in-out infinite alternate; }
+  @keyframes ws-drift-slow {
+    from { transform: translate3d(0, 0, 0) scale(1.08); }
+    to   { transform: translate3d(-36px, 20px, 0) scale(1); }
+  }
+
+  /* Lesk, ktorý raz za čas prejde cez pás */
+  .ws-sweep::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      100deg,
+      transparent 40%,
+      rgba(203, 171, 88, 0.10) 50%,
+      transparent 60%
+    );
+    transform: translateX(-100%);
+    animation: ws-sweep 9s ease-in-out infinite;
+    pointer-events: none;
+  }
+  @keyframes ws-sweep {
+    0%, 70% { transform: translateX(-100%); }
+    100%    { transform: translateX(100%); }
+  }
+
+  /* Potvrdenie po odoslaní formulára */
+  .ws-pop { animation: ws-pop 0.55s cubic-bezier(0.16, 1, 0.3, 1); }
+  @keyframes ws-pop {
+    0%   { transform: scale(0.6); }
+    60%  { transform: scale(1.08); }
+    100% { transform: scale(1); }
+  }
+  .ws-ring { animation: ws-ring 2s ease-out infinite; }
+  .ws-ring-delayed { animation: ws-ring 2s ease-out 0.6s infinite; }
+  @keyframes ws-ring {
+    0%   { opacity: 0.7; transform: scale(1); }
+    100% { opacity: 0; transform: scale(1.8); }
+  }
+  .ws-rise { animation: ws-rise 0.6s cubic-bezier(0.16, 1, 0.3, 1); }
+  @keyframes ws-rise {
+    from { transform: translateY(14px); }
+    to   { transform: translateY(0); }
+  }
+
+  /* Príchod uvítacieho banneru na stred obrazovky */
+  .ws-banner-in { animation: ws-banner-in 0.6s cubic-bezier(0.16, 1, 0.3, 1); }
+  @keyframes ws-banner-in {
+    0%   { transform: translateY(26px) scale(0.9); }
+    60%  { transform: translateY(0) scale(1.02); }
+    100% { transform: translateY(0) scale(1); }
+  }
+
+  /* Nástup obsahu zľava — nadväzuje na odsun predchádzajúceho kroku doprava */
+  .ws-slide-in { animation: ws-slide-in 0.5s cubic-bezier(0.16, 1, 0.3, 1); }
+  @keyframes ws-slide-in {
+    from { transform: translateX(-28px); }
+    to   { transform: translateX(0); }
+  }
+
+  /* Svetlo putujúce po hrane pásu */
+  .ws-trace { animation: ws-trace 8s linear infinite; }
+  @keyframes ws-trace {
+    0%   { left: -25%; opacity: 0; }
+    12%  { opacity: 1; }
+    88%  { opacity: 1; }
+    100% { left: 100%; opacity: 0; }
+  }
+
+  /* Pomalé priblíženie fotky — použité na vizuáloch showroomu */
+  .ws-kenburns { animation: ws-kenburns 18s ease-in-out infinite alternate both; }
+  @keyframes ws-kenburns {
+    from { transform: scale(1); }
+    to   { transform: scale(1.07); }
+  }
+
+  /* ---------- Podsvietený nápis WOODSTEEL ----------
+     Stena showroomu po zotmení. Tokeny sú napevno v tmavom prevedení —
+     hero má vždy svetlý text, takže svetlá stena tu nedáva zmysel. */
+  .ws-sign {
+    /* Zlato držíme blízko značkovej farby — bez lesklých prechodov,
+       ktoré by z nápisu spravili chrómovú ozdobu. */
+    --sign-gold-hi: #d8bd7c;
+    --sign-gold: #c2a256;
+    --sign-gold-deep: #a8893f;
+    --sign-gold-edge: #4a3819;
+    /* Stena je ladená do značkovej hnedej, nie do neutrálnej čiernej */
+    --sign-wall-1: #1a1512;
+    --sign-wall-2: #261d17;
+    --sign-wall-3: #0d0a08;
+    --sign-pool: rgba(255, 248, 235, 0.07);
+    --sign-halo: #fff6e6;
+    --sign-cast: rgba(0, 0, 0, 0.45);
+
+    position: absolute;
+    inset: 0;
+    isolation: isolate;
+    overflow: hidden;
+    background: radial-gradient(
+      125% 95% at 50% 36%,
+      var(--sign-wall-2) 0%,
+      var(--sign-wall-1) 48%,
+      var(--sign-wall-3) 100%
+    );
+  }
+
+  /* Svetelná kaluž, ktorú nápis vrhá na stenu */
+  .ws-sign::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    pointer-events: none;
+    background:
+      radial-gradient(60% 34% at 50% 38%, var(--sign-pool) 0%, transparent 72%),
+      radial-gradient(38% 20% at 50% 38%, var(--sign-pool) 0%, transparent 78%);
+    animation: ws-sign-pool 2000ms ease-out both;
+  }
+
+  /* Zrno omietky */
+  .ws-sign::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: 4;
+    pointer-events: none;
+    opacity: 0.16;
+    mix-blend-mode: overlay;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='220' height='220'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='220' height='220' filter='url(%23n)' opacity='0.55'/%3E%3C/svg%3E");
+  }
+
+  .ws-sign-vignette {
+    position: absolute;
+    inset: 0;
+    z-index: 3;
+    pointer-events: none;
+    background: radial-gradient(110% 82% at 50% 38%, transparent 48%, rgba(0, 0, 0, 0.6) 100%);
+  }
+
+  /* Nápis je textúra steny, nie druhý nadpis — drží sa vzadu a nekonkuruje
+     hlavnému textu, ktorý sedí v spodnej časti hero sekcie. */
+  .ws-sign-mark {
+    position: absolute;
+    top: 36%;
+    left: 50%;
+    z-index: 2;
+    translate: -50% -50%;
+    width: 100%;
+    padding: 0 6vw;
+    opacity: 0.55;
+  }
+
+  .ws-sign-mark > * {
+    margin: 0;
+    font-size: clamp(1.5rem, 6.6vw, 6.75rem);
+    font-weight: 400;
+    line-height: 1;
+    letter-spacing: 0.24em;
+    text-indent: 0.24em; /* vyrovná tracking za posledným písmenom */
+    white-space: nowrap;
+    text-align: center;
+    font-variant-ligatures: none;
+    font-family: "Futura", "Avenir Next", "Trebuchet MS", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  }
+
+  /* Vrstvy svetla sedia presne na sebe */
+  .ws-sign-layer {
+    position: absolute;
+    inset: 0;
+    display: grid;
+    place-items: center;
+    pointer-events: none;
+    user-select: none;
+  }
+
+  /* Intenzita drží na obale, aby ju nábehová animácia neprepísala */
+  .ws-sign-layer--bloom { opacity: 0.09; }
+  .ws-sign-layer--wide { opacity: 0.16; }
+  .ws-sign-layer--tight { opacity: 0.2; }
+
+  .ws-sign-bloom { color: var(--sign-halo); filter: blur(clamp(28px, 6.4vw, 88px)); }
+  .ws-sign-wide { color: var(--sign-halo); filter: blur(clamp(14px, 3.2vw, 42px)); }
+  .ws-sign-tight { color: var(--sign-halo); filter: blur(clamp(5px, 1vw, 13px)); }
+
+  /* Hrúbka písmen + tieň od dištančných čapov */
+  .ws-sign-edge {
+    color: var(--sign-gold-edge);
+    transform: translate(0.008em, 0.014em);
+    filter: drop-shadow(0.03em 0.045em 0.04em var(--sign-cast));
+  }
+
+  /* Čelo písmen — matné zlato, len s jemným prechodom zhora nadol */
+  .ws-sign-face {
+    position: relative;
+    background: linear-gradient(
+      177deg,
+      var(--sign-gold-hi) 0%,
+      var(--sign-gold) 48%,
+      var(--sign-gold-deep) 100%
+    );
+    background-clip: text;
+    color: transparent;
+    -webkit-text-fill-color: transparent;
+  }
+
+  /* Rozsvietenie */
+  .ws-sign-bloom,
+  .ws-sign-wide,
+  .ws-sign-tight { animation: ws-sign-power 1500ms cubic-bezier(0.32, 0.7, 0.3, 1) both; }
+  .ws-sign-tight { animation-delay: 90ms; }
+  .ws-sign-face { animation: ws-sign-warm 1700ms ease-out both; }
+  .ws-sign-layer--edge { animation: ws-sign-rise 1700ms ease-out both; }
+
+  /* Plynulé rozsvietenie — bez blikania neónky */
+  @keyframes ws-sign-power {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+  }
+  @keyframes ws-sign-warm {
+    from { filter: brightness(0.72) saturate(0.75); }
+    to   { filter: none; }
+  }
+  @keyframes ws-sign-pool { from { opacity: 0; } to { opacity: 1; } }
+  @keyframes ws-sign-rise { from { opacity: 0.35; } to { opacity: 1; } }
+}
+
+/* Používatelia s obmedzeným pohybom dostanú obsah bez animácií */
+@media (prefers-reduced-motion: reduce) {
+  .reveal,
+  .stagger > *,
+  .ws-fade-in,
+  .ws-dialog-in,
+  .ws-kenburns,
+  .ws-cta,
+  .ws-cta::after,
+  .ws-cta-halo,
+  .ws-drift,
+  .ws-drift-slow,
+  .ws-sweep::before,
+  .ws-trace,
+  .ws-ring,
+  .ws-ring-delayed,
+  .ws-sign::before,
+  .ws-sign-bloom,
+  .ws-sign-wide,
+  .ws-sign-tight,
+  .ws-sign-face,
+  .ws-sign-layer--edge {
+    animation: none !important;
+  }
+  .ws-slide-in,
+  .ws-pop,
+  .ws-rise,
+  .ws-banner-in {
+    animation-duration: 0.01ms !important;
+  }
+  .ws-reveal {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+  html { scroll-behavior: auto; }
+}
