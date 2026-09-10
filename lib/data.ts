@@ -38,55 +38,46 @@ export const realizations: {
   image: string;
 }[] = [
   {
-    location: "BA — Vrakuňa",
     category: "Aluminium-Pergola",
     image:
       "/images/hlinikova-pergola-BA-Vrakuna.jpeg",
   },
   {
-    location: "Hamuliakovo",
     category: "Wintergarten",
     image:
       "/images/zimna-zahrada-hamuliakovo.jpeg",
   },
   {
-    location: "Senec",
     category: "Aluminium-Pergola",
     image:
       "/images/hlinikova-pergola-senec.jpeg",
   },
   {
-    location: "Rovinka",
     category: "Terrassenverglasung",
     image:
       "/images/zimna-zahrada-rovinka.jpeg",
   },
   {
-    location: "Dunajská Lužná",
     category: "Wintergarten",
     image:
       "/images/zimna-zahrada-dunajska-luzna.jpeg",
   },
   {
-    location: "Trenčín — Soblahov",
     category: "Aluminium-Pergola",
     image:
       "/images/hlinikova-pergola-trencin.jpeg",
   },
   {
-    location: "Kittsee",
     category: "Wintergarten",
     image:
       "/images/zimna-zahrada-kittse.jpeg",
   },
   {
-    location: "BA — Podunajské Biskupice",
     category: "Wintergarten",
     image:
       "/images/zimna-zahrada-podunajske-biskupice.jpeg",
   },
   {
-    location: "Horné Janíky",
     category: "Aluminium-Pergola",
     image:
       "/images/zimna-zahrada-horne-janiky-1.jpeg",
@@ -94,69 +85,58 @@ export const realizations: {
   // Drevené realizácie prevzaté z woodsteel.sk — konštrukcia je skutočne
   // drevená, preto majú vlastnú kategóriu a nemiešajú sa s hliníkovými.
   {
-    location: "Rovinka",
     category: "Holz-Wintergarten",
     image:
       "/images/drevena-zimna-zahrada2.jpg",
   },
   {
-    location: "Rovinka",
     category: "Holz-Wintergarten",
     image:
       "/images/drevena-zimna-zahrada3.jpg",
   },
   {
-    location: "Rovinka",
     category: "Holz-Wintergarten",
     image:
       "/images/drevena-zimna-zahrada4.jpg",
   },
   {
-    location: "Rovinka",
     category: "Holz-Wintergarten",
     image:
       "/images/drevena-zimna-zahrada5.jpg",
   },
   // Ďalšie hliníkové pergoly prevzaté z woodsteel.sk
   {
-    location: "Ivanka pri Dunaji",
     category: "Aluminium-Pergola",
     image:
       "/images/hlinikova-pergola2.jpg",
   },
   {
-    location: "Neded",
     category: "Aluminium-Pergola",
     image:
       "/images/hlinikova-pergola3.jpg",
   },
   {
-    location: "Trenčín",
     category: "Aluminium-Pergola",
     image:
       "/images/hlinikova-pergola4.jpg",
   },
   {
-    location: "BA — Vrakuňa",
     category: "Aluminium-Pergola",
     image:
       "/images/hlinikova-pergola5.jpg",
   },
   // Prístrešky na auto — vlastné fotografie zákazníka
   {
-    location: "BA — Koliba",
     category: "Carport",
     image:
       "/images/pristresok-na-auto-2.jpg",
   },
   {
-    location: "Trenčianske Teplice",
     category: "Carport",
     image:
       "/images/pristresok-na-auto-3.jpg",
   },
   {
-    location: "Viničné",
     category: "Carport",
     image:
       "/images/pristresok-na-auto-4.jpg",

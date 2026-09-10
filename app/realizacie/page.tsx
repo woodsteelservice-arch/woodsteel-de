@@ -11,7 +11,7 @@ import { realizations } from "@/lib/data";
 export const metadata: Metadata = {
   title: "Referenzen - WoodSteel",
   description:
-    "Fotos fertiger Pergolen, Wintergärten, Verglasungen und Carports aus Projekten in der ganzen Slowakei.",
+    "Fotos fertiger Pergolen, Wintergärten, Verglasungen und Carports aus abgeschlossenen Projekten.",
   alternates: { canonical: "https://woodsteel.sk/realizacie/" },
 };
 

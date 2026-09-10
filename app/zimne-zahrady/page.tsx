@@ -148,7 +148,7 @@ export default function ZimneZahradyPage() {
 
         <section className="py-24 lg:py-32 bg-white">
           <div className="max-w-7xl mx-auto px-5 lg:px-8">
-            <SectionHeader eyebrow="Referenzen" title="Unsere Wintergärten bei echten Kunden" subtitle="Aus Bratislava, Senec, Hamuliakovo und Kittsee — Einblicke in fertige Projekte." />
+            <SectionHeader eyebrow="Referenzen" title="Unsere Wintergärten bei echten Kunden" subtitle="Einblicke in fertige Projekte." />
             <div className="mt-14 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 lg:gap-6">
               {projects.map((r) => (
                 <article key={r.image} className="group relative aspect-[4/3] rounded-2xl overflow-hidden bg-cream">

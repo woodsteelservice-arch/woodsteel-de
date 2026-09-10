@@ -11,7 +11,7 @@ export function Realizations() {
         <SectionHeader
           eyebrow="Referenzen"
           title="Lassen Sie sich von unseren Projekten inspirieren"
-          subtitle="Aus über 250 abgeschlossenen Projekten haben wir einige ausgewählt, die für uns sprechen. Aus der ganzen Slowakei und dem Ausland."
+          subtitle="Aus über 250 abgeschlossenen Projekten haben wir einige ausgewählt, die für uns sprechen."
         />
 
         <div className="mt-10 sm:mt-14 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5 lg:gap-6">

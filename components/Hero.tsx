@@ -7,7 +7,7 @@ export function Hero() {
     <section className="relative min-h-[88svh] sm:min-h-[100svh] flex items-end overflow-hidden">
       <Image
         src="/images/hero-dunajska-luzna.jpg"
-        alt="Wintergarten — Dunajská Lužná"
+        alt="Wintergarten von WoodSteel"
         fill
         priority
         sizes="100vw"
@@ -66,7 +66,7 @@ export function Hero() {
 
           <div className="mt-8 sm:mt-10 inline-flex items-center gap-2 text-cream/70 text-xs reveal" style={{ animationDelay: "420ms" }}>
             <MapPin size={12} />
-            Projekt: Wintergarten, Dunajská Lužná
+            Projekt: Wintergarten
           </div>
         </div>
       </div>

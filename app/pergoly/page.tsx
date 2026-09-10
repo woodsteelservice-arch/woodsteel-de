@@ -82,7 +82,7 @@ export default function PergolyPage() {
         <section className="relative min-h-[80svh] flex items-end overflow-hidden">
           <Image
             src="/images/hlinikova-pergola-trencin.jpeg"
-            alt="Aluminium-Pergola — Trenčín"
+            alt="Aluminium-Pergola von WoodSteel"
             fill
             priority
             sizes="100vw"
