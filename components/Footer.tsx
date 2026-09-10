@@ -32,11 +32,11 @@ export function Footer() {
         <div className="grid grid-cols-2 lg:grid-cols-4 gap-8 sm:gap-10 lg:gap-12">
           <div className="col-span-2 lg:col-span-1">
             <Image
-              src="/logo/woodsteel-logo.png"
-              alt="WoodSteel"
+              src="/logo/ws-wintergarten-logo.png"
+              alt="WS Wintergarten"
               width={336}
-              height={200}
-              className="h-10 sm:h-12 w-auto [filter:brightness(0)_invert(1)]"
+              height={216}
+              className="h-12 sm:h-14 w-auto [filter:brightness(0)_invert(1)]"
             />
             <p className="mt-5 text-cream/70 text-sm leading-relaxed max-w-xs">
               Pergolen, Wintergärten und Terrassenverglasung nach Maß. Eigene

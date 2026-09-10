@@ -8,8 +8,8 @@ export const localBusinessSchema = {
   "@type": "LocalBusiness",
   name: "WoodSteel",
   url: SITE_URL,
-  logo: `${SITE_URL}/logo/woodsteel-logo.png`,
-  image: `${SITE_URL}/logo/woodsteel-logo.png`,
+  logo: `${SITE_URL}/logo/ws-wintergarten-logo.png`,
+  image: `${SITE_URL}/logo/ws-wintergarten-logo.png`,
   description:
     "Pergolen, Wintergärten und Terrassenverglasung nach Maß. Eigene Fertigung und Montage seit 2021.",
   telephone: "+421904473111",

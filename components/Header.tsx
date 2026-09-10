@@ -69,12 +69,12 @@ export function Header({ overlay = false }: HeaderProps) {
 
       <div className="relative max-w-7xl mx-auto px-4 sm:px-5 lg:px-8 h-14 sm:h-16 lg:h-20 flex items-center justify-between gap-4 sm:gap-6">
         {/* Logo */}
-        <Link href="/" className="flex items-center group shrink-0" aria-label="WoodSteel — Startseite">
+        <Link href="/" className="flex items-center group shrink-0" aria-label="WS Wintergarten — Startseite">
           <Image
-            src="/logo/woodsteel-logo.png"
-            alt="WoodSteel"
+            src="/logo/ws-wintergarten-logo.png"
+            alt="WS Wintergarten"
             width={336}
-            height={200}
+            height={216}
             priority
             className={cn(
               "h-8 sm:h-10 lg:h-12 w-auto transition-[filter] duration-300",
