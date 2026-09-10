@@ -154,7 +154,7 @@ export const reviews: {
 }[] = [
   {
     name: "Alena C.",
-    text: "Den Wintergarten von Woodsteel können wir wärmstens empfehlen. Er übertrifft die Erwartungen 👌 Wenn Sie ihn schon im Frühling nutzen möchten, zögern Sie nicht und bestellen Sie jetzt. Besonderer Dank gilt Herrn Kurilla für den ausgesprochen professionellen Umgang mit dem Kunden 👍",
+    text: "Den Wintergarten können wir wärmstens empfehlen. Er übertrifft die Erwartungen 👌 Wenn Sie ihn schon im Frühling nutzen möchten, zögern Sie nicht und bestellen Sie jetzt. Besonderer Dank gilt Herrn Kurilla für den ausgesprochen professionellen Umgang mit dem Kunden 👍",
   },
   {
     name: "Naďa G.",
