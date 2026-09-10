@@ -42,7 +42,7 @@ export function Reviews() {
           ))}
         </div>
 
-        <div className="mt-10 sm:mt-12 flex flex-col sm:flex-row items-center justify-center gap-5 sm:gap-6 text-center">
+        <div className="mt-10 sm:mt-12 flex items-center justify-center text-center">
           <div className="flex flex-wrap justify-center items-center gap-3 font-display">
             <span className="flex gap-0.5">
               {[...Array(5)].map((_, i) => (
@@ -52,14 +52,6 @@ export function Reviews() {
             <span className="text-brown font-bold text-lg">4.8 / 5</span>
             <span className="text-mutedbrand text-sm">auf Basis von Google-Bewertungen</span>
           </div>
-          <a
-            href="https://www.google.com/search?q=Woodsteel+SK+recenzie"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 px-5 py-2.5 border-2 border-brown/15 hover:border-gold text-brown hover:text-gold text-sm font-semibold rounded-full transition-colors"
-          >
-            Bewertung auf Google schreiben →
-          </a>
         </div>
       </div>
     </section>
