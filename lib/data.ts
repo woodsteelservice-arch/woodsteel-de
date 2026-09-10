@@ -158,7 +158,7 @@ export const reviews: {
   },
   {
     name: "Naďa G.",
-    text: "Wir haben lange überlegt, welche Firma wir wählen, und ich bin überaus froh, dass ich mich für Woodsteel entschieden habe. Unglaublich nettes und hilfsbereites Personal mit prompter Kommunikation und professionellem Auftreten. Den Wintergarten haben sie sogar vor dem Termin fertiggestellt, was uns noch mehr gefreut hat. Von uns eine klare Empfehlung. :)",
+    text: "Wir haben lange überlegt, welche Firma wir wählen, und ich bin überaus froh, dass die Wahl am Ende auf sie gefallen ist. Unglaublich nettes und hilfsbereites Personal mit prompter Kommunikation und professionellem Auftreten. Den Wintergarten haben sie sogar vor dem Termin fertiggestellt, was uns noch mehr gefreut hat. Von uns eine klare Empfehlung. :)",
   },
   {
     name: "Radka Š.",
