@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { Phone, Mail, MapPin, Clock } from "lucide-react";
+import { Phone, Mail, Clock } from "lucide-react";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import { InquiryForm } from "@/components/InquiryForm";
@@ -71,23 +71,13 @@ export default function KontaktPage() {
 
               <div className="border-t border-cream pt-8">
                 <h2 className="font-display font-bold text-2xl text-brown mb-6">
-                  Standort
+                  Öffnungszeiten
                 </h2>
                 <div className="space-y-4 text-mutedbrand">
                   <div className="flex items-start gap-3">
-                    <MapPin size={18} className="text-gold mt-1 shrink-0" />
-                    <div className="text-charcoal">
-                      <div className="font-semibold">Rovinka</div>
-                      <div className="text-sm text-mutedbrand">
-                        Bezirk Senec, Slowakische Republik
-                      </div>
-                    </div>
-                  </div>
-                  <div className="flex items-start gap-3">
                     <Clock size={18} className="text-gold mt-1 shrink-0" />
                     <div className="text-charcoal text-sm">
-                      <div className="font-semibold">Öffnungszeiten</div>
-                      <div className="text-mutedbrand mt-1">
+                      <div className="text-mutedbrand">
                         Mo–Fr: 8:00 – 17:00 Uhr<br />
                         Sa: nach Vereinbarung<br />
                         So: geschlossen
