@@ -5,7 +5,7 @@ import Image from "next/image";
 import { ArrowRight, Mail } from "lucide-react";
 import { cn } from "@/lib/utils";
 
-const CATALOG_FILE = "/download/woodsteel-katalog-2025.pdf";
+const CATALOG_FILE = "/download/woodsteel-katalog-de.pdf";
 
 export function CatalogDownload() {
   const [status, setStatus] = useState<"idle" | "sending" | "leaving" | "success">("idle");

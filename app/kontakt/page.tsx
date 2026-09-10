@@ -5,7 +5,6 @@ import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import { InquiryForm } from "@/components/InquiryForm";
 import { WhatsAppButton } from "@/components/WhatsAppButton";
-import { MapEmbed } from "@/components/MapEmbed";
 
 export const metadata: Metadata = {
   title: "Kontakt - WoodSteel",
@@ -103,16 +102,6 @@ export default function KontaktPage() {
             <div className="lg:col-span-3">
               <InquiryForm variant="card" />
             </div>
-          </div>
-        </section>
-
-        {/* Map */}
-        <section className="pb-20 lg:pb-28 bg-white">
-          <div className="max-w-7xl mx-auto px-5 lg:px-8">
-            <h2 className="font-display font-bold text-2xl lg:text-3xl text-brown mb-6">
-              So finden Sie uns
-            </h2>
-            <MapEmbed title="WoodSteel Rovinka" />
           </div>
         </section>
       </main>

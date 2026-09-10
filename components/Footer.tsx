@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import { Mail, Phone, MapPin } from "lucide-react";
+import { Mail, Phone } from "lucide-react";
 
 function SocialIcon({ type }: { type: "facebook" | "instagram" | "youtube" }) {
   const paths: Record<typeof type, React.ReactNode> = {
@@ -89,10 +89,6 @@ export function Footer() {
                   <Mail size={14} className="text-gold" />
                   info@woodsteel.sk
                 </a>
-              </li>
-              <li className="inline-flex items-start gap-2">
-                <MapPin size={14} className="text-gold mt-1 shrink-0" />
-                <span>Rovinka<br />Slowakische Republik</span>
               </li>
             </ul>
           </div>

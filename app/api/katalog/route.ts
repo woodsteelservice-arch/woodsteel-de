@@ -1,6 +1,6 @@
 import { NextResponse } from "next/server";
 
-const CATALOG_FILE = "/download/woodsteel-katalog-2025.pdf";
+const CATALOG_FILE = "/download/woodsteel-katalog-de.pdf";
 const RESEND_ENDPOINT = "https://api.resend.com/emails";
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 

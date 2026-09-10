@@ -22,8 +22,8 @@ function Instagram({ size = 16, className = "" }: { size?: number; className?: s
   );
 }
 
-const INSTAGRAM_HANDLE = "@woodsteelsk";
-const INSTAGRAM_URL = "https://www.instagram.com/woodsteelsk/";
+const INSTAGRAM_HANDLE = "@ws_wintergarten";
+const INSTAGRAM_URL = "https://www.instagram.com/ws_wintergarten/";
 
 // Visual mock of the latest 8 posts. In production this should be replaced with
 // a live feed via Instagram Basic Display API or a service like Behold.so / Curator.io.
@@ -98,7 +98,7 @@ export function InstagramFeed() {
             className="inline-flex items-center gap-2 px-6 py-3.5 border-2 border-brown/15 hover:border-gold text-brown hover:text-gold font-semibold text-sm rounded-full transition-colors"
           >
             <Instagram size={16} />
-            Sledovať {INSTAGRAM_HANDLE}
+            {INSTAGRAM_HANDLE} folgen
           </Link>
         </div>
       </div>

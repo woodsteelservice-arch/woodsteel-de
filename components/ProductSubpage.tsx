@@ -103,7 +103,7 @@ export function ProductSubpage({ breadcrumb, hero, intro, features, realizationF
 
         <Process />
         <Reviews />
-        {faqs && faqs.length > 0 && <Faq items={faqs} eyebrow="FAQ" title={`Otázky o ${hero.eyebrow.toLowerCase()}`} />}
+        {faqs && faqs.length > 0 && <Faq items={faqs} eyebrow="FAQ" title={`Fragen zu ${hero.eyebrow}`} />}
         <FinalCTA />
       </main>
       <Footer />
