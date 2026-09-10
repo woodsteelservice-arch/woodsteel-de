@@ -49,7 +49,7 @@ export function InstagramFeed() {
             Instagram
           </div>
           <h2 className="text-display-2 font-bold text-brown">
-            Sledujte nás na{" "}
+            Folgen Sie uns auf{" "}
             <Link
               href={INSTAGRAM_URL}
               target="_blank"
