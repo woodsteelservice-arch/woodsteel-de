@@ -1,15 +1,35 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { Phone, Mail, Clock } from "lucide-react";
+import { Mail, Clock } from "lucide-react";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import { InquiryForm } from "@/components/InquiryForm";
 import { WhatsAppButton } from "@/components/WhatsAppButton";
 
+function Instagram({ size = 18, className = "" }: { size?: number; className?: string }) {
+  return (
+    <svg
+      viewBox="0 0 24 24"
+      width={size}
+      height={size}
+      fill="none"
+      stroke="currentColor"
+      strokeWidth={2}
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      className={className}
+    >
+      <rect x="3" y="3" width="18" height="18" rx="5" />
+      <circle cx="12" cy="12" r="4" />
+      <circle cx="17.5" cy="6.5" r="1.2" fill="currentColor" stroke="none" />
+    </svg>
+  );
+}
+
 export const metadata: Metadata = {
   title: "Kontakt - WoodSteel",
   description:
-    "Schreiben Sie uns oder rufen Sie an und vereinbaren Sie einen kostenlosen Termin bei Ihnen zu Hause. Wir sind in der Slowakei, Tschechien, Österreich und Ungarn tätig.",
+    "Schreiben Sie uns und vereinbaren Sie einen kostenlosen Termin bei Ihnen zu Hause. Wir sind in der Slowakei, Tschechien, Österreich und Ungarn tätig.",
   alternates: { canonical: "https://woodsteel.sk/kontakt/" },
 };
 
@@ -29,8 +49,8 @@ export default function KontaktPage() {
               Starten wir Ihr Projekt.
             </h1>
             <p className="mt-5 text-mutedbrand text-base lg:text-lg max-w-2xl mx-auto">
-              Füllen Sie das Formular aus, rufen Sie an oder vereinbaren Sie ein
-              persönliches Treffen in unserem Betrieb.
+              Füllen Sie das Formular aus, schreiben Sie uns eine E-Mail oder
+              vereinbaren Sie ein persönliches Treffen in unserem Betrieb.
             </p>
           </div>
         </section>
@@ -44,17 +64,6 @@ export default function KontaktPage() {
                   Direkte Kontakte
                 </h2>
                 <div className="space-y-5">
-                  <a href="tel:+421904473111" className="flex items-center gap-4 group">
-                    <div className="w-12 h-12 rounded-full bg-gold/15 group-hover:bg-gold flex items-center justify-center transition-colors shrink-0">
-                      <Phone size={18} className="text-gold group-hover:text-white" />
-                    </div>
-                    <div>
-                      <div className="text-xs text-eyebrow text-mutedbrand">Telefón</div>
-                      <div className="font-display font-bold text-lg text-brown group-hover:text-gold">
-                        +421 904 473 111
-                      </div>
-                    </div>
-                  </a>
                   <a href="mailto:info@wswintergarten.de" className="flex items-center gap-4 group">
                     <div className="w-12 h-12 rounded-full bg-gold/15 group-hover:bg-gold flex items-center justify-center transition-colors shrink-0">
                       <Mail size={18} className="text-gold group-hover:text-white" />
@@ -63,6 +72,22 @@ export default function KontaktPage() {
                       <div className="text-xs text-eyebrow text-mutedbrand">E-mail</div>
                       <div className="font-display font-bold text-lg text-brown group-hover:text-gold">
                         info@wswintergarten.de
+                      </div>
+                    </div>
+                  </a>
+                  <a
+                    href="https://www.instagram.com/ws_wintergarten/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center gap-4 group"
+                  >
+                    <div className="w-12 h-12 rounded-full bg-gold/15 group-hover:bg-gold flex items-center justify-center transition-colors shrink-0">
+                      <Instagram size={18} className="text-gold group-hover:text-white" />
+                    </div>
+                    <div>
+                      <div className="text-xs text-eyebrow text-mutedbrand">Instagram</div>
+                      <div className="font-display font-bold text-lg text-brown group-hover:text-gold">
+                        @ws_wintergarten
                       </div>
                     </div>
                   </a>

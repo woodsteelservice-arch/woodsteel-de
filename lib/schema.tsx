@@ -12,7 +12,6 @@ export const localBusinessSchema = {
   image: `${SITE_URL}/logo/ws-wintergarten-logo.png`,
   description:
     "Pergolen, Wintergärten und Terrassenverglasung nach Maß. Eigene Fertigung und Montage seit 2021.",
-  telephone: "+421904473111",
   email: "info@wswintergarten.de",
   priceRange: "€€€",
   address: {
@@ -34,10 +33,7 @@ export const localBusinessSchema = {
       closes: "17:00",
     },
   ],
-  sameAs: [
-    "https://www.instagram.com/ws_wintergarten/",
-    "https://www.facebook.com/p/Woodsteel-SK-100086640138632/",
-  ],
+  sameAs: ["https://www.instagram.com/ws_wintergarten/"],
   aggregateRating: {
     "@type": "AggregateRating",
     ratingValue: "4.8",

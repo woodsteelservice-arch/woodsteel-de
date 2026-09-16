@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowRight, Check, Phone } from "lucide-react";
+import { ArrowRight, Check, Mail } from "lucide-react";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import { FinalCTA } from "@/components/FinalCTA";
@@ -89,10 +89,10 @@ export function GlazingSystemPage({ tag, name, claim, description, features, ima
                   Naceniť zasklenie terasy <ArrowRight size={18} />
                 </Link>
                 <a
-                  href="tel:+421904473111"
+                  href="mailto:info@wswintergarten.de"
                   className="inline-flex justify-center items-center gap-2 px-7 py-4 border-2 border-brown/15 hover:border-gold text-brown hover:text-gold font-semibold rounded-full transition-colors"
                 >
-                  <Phone size={18} /> +421 904 473 111
+                  <Mail size={18} /> info@wswintergarten.de
                 </a>
               </div>
             </Reveal>

@@ -1,4 +1,4 @@
-import { Phone, Mail } from "lucide-react";
+import { Mail } from "lucide-react";
 import { InquiryForm } from "./InquiryForm";
 
 export function FinalCTA() {
@@ -21,20 +21,6 @@ export function FinalCTA() {
             </p>
 
             <div className="mt-8 sm:mt-10 space-y-4 sm:space-y-5">
-              <a
-                href="tel:+421904473111"
-                className="flex items-center gap-4 group"
-              >
-                <div className="w-12 h-12 rounded-full bg-gold/15 group-hover:bg-gold flex items-center justify-center transition-colors">
-                  <Phone size={20} className="text-gold group-hover:text-white transition-colors" />
-                </div>
-                <div>
-                  <div className="text-xs text-eyebrow text-mutedbrand">Rufen Sie uns an</div>
-                  <div className="font-display font-bold text-lg text-brown group-hover:text-gold transition-colors">
-                    +421 904 473 111
-                  </div>
-                </div>
-              </a>
               <a
                 href="mailto:info@wswintergarten.de"
                 className="flex items-center gap-4 group"

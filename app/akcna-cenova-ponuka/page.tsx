@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { Phone, Zap, Clock, Check } from "lucide-react";
+import { Mail, Zap, Clock, Check } from "lucide-react";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import { InquiryForm } from "@/components/InquiryForm";
@@ -80,14 +80,14 @@ export default function CenovaPonukaPage() {
                 </p>
               </div>
 
-              <a href="tel:+421904473111" className="flex items-center gap-4 group">
+              <a href="mailto:info@wswintergarten.de" className="flex items-center gap-4 group">
                 <div className="w-12 h-12 rounded-full bg-gold/15 group-hover:bg-gold flex items-center justify-center transition-colors shrink-0">
-                  <Phone size={18} className="text-gold group-hover:text-white" />
+                  <Mail size={18} className="text-gold group-hover:text-white" />
                 </div>
                 <div>
-                  <div className="text-xs text-eyebrow text-mutedbrand">Oder rufen Sie uns direkt an</div>
+                  <div className="text-xs text-eyebrow text-mutedbrand">Oder schreiben Sie uns direkt</div>
                   <div className="font-display font-bold text-lg text-brown group-hover:text-gold transition-colors">
-                    +421 904 473 111
+                    info@wswintergarten.de
                   </div>
                 </div>
               </a>

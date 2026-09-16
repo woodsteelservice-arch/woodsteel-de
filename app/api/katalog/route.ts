@@ -54,7 +54,7 @@ export async function POST(request: Request) {
           "im Anhang senden wir Ihnen den WoodSteel Katalog — Pergolen, Wintergärten und Terrassenverglasung.",
           `Ak by sa príloha nezobrazila, katalóg si stiahnete tu: ${pdfUrl}`,
           "",
-          "Bei Fragen rufen Sie uns gerne unter +421 904 473 111 an.",
+          "Bei Fragen schreiben Sie uns gerne an info@wswintergarten.de.",
           "",
           "WoodSteel SK s. r. o.",
         ].join("\n"),

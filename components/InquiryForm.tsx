@@ -144,7 +144,7 @@ export function InquiryForm({ variant = "card", defaultProduct = "" }: Props) {
     } catch {
       setStatus("idle");
       setError(
-        "Das Absenden ist fehlgeschlagen. Bitte versuchen Sie es erneut oder rufen Sie uns unter +421 904 473 111 an."
+        "Das Absenden ist fehlgeschlagen. Bitte versuchen Sie es erneut oder schreiben Sie uns an info@wswintergarten.de."
       );
       return;
     }

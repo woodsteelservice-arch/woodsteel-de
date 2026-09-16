@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import { Mail, Phone } from "lucide-react";
+import { Mail } from "lucide-react";
 
 function SocialIcon({ type }: { type: "facebook" | "instagram" | "youtube" }) {
   const paths: Record<typeof type, React.ReactNode> = {
@@ -43,14 +43,14 @@ export function Footer() {
               Fertigung und Montage seit 2021.
             </p>
             <div className="mt-6 flex items-center gap-3">
-              <a href="#" aria-label="Facebook" className="w-9 h-9 rounded-full bg-white/8 hover:bg-gold flex items-center justify-center transition-colors">
-                <SocialIcon type="facebook" />
-              </a>
-              <a href="#" aria-label="Instagram" className="w-9 h-9 rounded-full bg-white/8 hover:bg-gold flex items-center justify-center transition-colors">
+              <a
+                href="https://www.instagram.com/ws_wintergarten/"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Instagram"
+                className="w-9 h-9 rounded-full bg-white/8 hover:bg-gold flex items-center justify-center transition-colors"
+              >
                 <SocialIcon type="instagram" />
-              </a>
-              <a href="#" aria-label="YouTube" className="w-9 h-9 rounded-full bg-white/8 hover:bg-gold flex items-center justify-center transition-colors">
-                <SocialIcon type="youtube" />
               </a>
             </div>
           </div>
@@ -79,15 +79,20 @@ export function Footer() {
             <h4 className="text-eyebrow text-gold mb-5">Kontakt</h4>
             <ul className="space-y-3 text-sm">
               <li>
-                <a href="tel:+421904473111" className="inline-flex items-center gap-2 py-2 hover:text-gold transition-colors">
-                  <Phone size={14} className="text-gold" />
-                  +421 904 473 111
-                </a>
-              </li>
-              <li>
                 <a href="mailto:info@wswintergarten.de" className="inline-flex items-center gap-2 py-2 hover:text-gold transition-colors">
                   <Mail size={14} className="text-gold" />
                   info@wswintergarten.de
+                </a>
+              </li>
+              <li>
+                <a
+                  href="https://www.instagram.com/ws_wintergarten/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 py-2 hover:text-gold transition-colors"
+                >
+                  <span className="text-gold"><SocialIcon type="instagram" /></span>
+                  @ws_wintergarten
                 </a>
               </li>
             </ul>

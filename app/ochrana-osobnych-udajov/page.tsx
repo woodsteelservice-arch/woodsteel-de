@@ -155,9 +155,7 @@ export default function OchranaOsobnychUdajovPage() {
             <Section title="Kontakt">
               <p>
                 Bei Fragen zur Verarbeitung personenbezogener Daten wenden Sie sich an{" "}
-                <a href="mailto:info@wswintergarten.de" className="text-gold underline">info@wswintergarten.de</a>{" "}
-                oder unter der Nummer{" "}
-                <a href="tel:+421904473111" className="text-gold underline">+421 904 473 111</a>.
+                <a href="mailto:info@wswintergarten.de" className="text-gold underline">info@wswintergarten.de</a>.
               </p>
             </Section>
           </div>

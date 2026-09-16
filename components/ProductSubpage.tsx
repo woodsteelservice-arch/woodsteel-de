@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowRight, Check, Phone } from "lucide-react";
+import { ArrowRight, Check, Mail } from "lucide-react";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import { Process } from "@/components/Process";
@@ -52,8 +52,8 @@ export function ProductSubpage({ breadcrumb, hero, intro, features, realizationF
               <Link href="/akcna-cenova-ponuka" className="inline-flex justify-center items-center gap-2 px-7 py-4 bg-gold hover:bg-gold-hover text-brown hover:text-white font-semibold rounded-full transition-all shadow-[0_8px_24px_rgba(203,171,88,0.4)] hover:-translate-y-0.5">
                 Angebot anfordern <ArrowRight size={18} />
               </Link>
-              <a href="tel:+421904473111" className="inline-flex justify-center items-center gap-2 px-7 py-4 border-2 border-white/40 hover:border-white text-white font-semibold rounded-full transition-colors">
-                <Phone size={18} /> +421 904 473 111
+              <a href="mailto:info@wswintergarten.de" className="inline-flex justify-center items-center gap-2 px-7 py-4 border-2 border-white/40 hover:border-white text-white font-semibold rounded-full transition-colors">
+                <Mail size={18} /> info@wswintergarten.de
               </a>
             </div>
           </div>

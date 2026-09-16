@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { Menu, Phone, X, ChevronDown, ArrowRight } from "lucide-react";
+import { Menu, Mail, X, ChevronDown, ArrowRight } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { navigation } from "@/lib/data";
 
@@ -175,7 +175,7 @@ export function Header({ overlay = false }: HeaderProps) {
         {/* Right side: phone + CTA */}
         <div className="flex items-center gap-3">
           <a
-            href="tel:+421904473111"
+            href="mailto:info@wswintergarten.de"
             className={cn(
               "hidden xl:inline-flex items-center gap-2 text-sm font-medium transition-colors",
               transparent
@@ -183,8 +183,8 @@ export function Header({ overlay = false }: HeaderProps) {
                 : "text-charcoal hover:text-gold"
             )}
           >
-            <Phone size={16} />
-            +421 904 473 111
+            <Mail size={16} />
+            info@wswintergarten.de
           </a>
           {/* Trvalo zvýraznené CTA — viditeľné na každej šírke aj v oboch stavoch lišty */}
           <span className="relative inline-flex shrink-0">
@@ -303,11 +303,11 @@ export function Header({ overlay = false }: HeaderProps) {
               );
             })}
             <a
-              href="tel:+421904473111"
+              href="mailto:info@wswintergarten.de"
               className="flex items-center gap-2 mt-4 px-3 py-3 text-base font-medium text-charcoal border-t border-cream"
             >
-              <Phone size={18} className="text-gold" />
-              +421 904 473 111
+              <Mail size={18} className="text-gold" />
+              info@wswintergarten.de
             </a>
             <Link
               href="#contact"

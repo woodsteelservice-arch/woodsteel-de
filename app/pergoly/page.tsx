@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowRight, Check, Phone } from "lucide-react";
+import { ArrowRight, Check, Mail } from "lucide-react";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import { Process } from "@/components/Process";
@@ -112,11 +112,11 @@ export default function PergolyPage() {
                 <ArrowRight size={18} />
               </Link>
               <a
-                href="tel:+421904473111"
+                href="mailto:info@wswintergarten.de"
                 className="inline-flex justify-center items-center gap-2 px-7 py-4 border-2 border-white/40 hover:border-white text-white font-semibold rounded-full transition-colors"
               >
-                <Phone size={18} />
-                +421 904 473 111
+                <Mail size={18} />
+                info@wswintergarten.de
               </a>
             </div>
           </div>

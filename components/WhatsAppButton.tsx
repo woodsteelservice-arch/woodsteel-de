@@ -3,7 +3,10 @@
 import { useEffect, useState } from "react";
 import { cn } from "@/lib/utils";
 
-const WHATSAPP_URL = "https://wa.me/421904473111?text=Dobr%C3%BD%20de%C5%88%2C%20m%C3%A1m%20z%C3%A1ujem%20o%20cenov%C3%BA%20pon%C3%BAku.";
+// Nemecký web zatiaľ neuvádza žiadne telefónne číslo — WhatsApp by ho prezradil.
+// Keď pribudne DE číslo, doplň ho sem a prepni ENABLED na true.
+const ENABLED = false;
+const WHATSAPP_URL = "";
 
 export function WhatsAppButton() {
   const [show, setShow] = useState(false);
@@ -14,6 +17,8 @@ export function WhatsAppButton() {
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
+
+  if (!ENABLED) return null;
 
   return (
     <a
