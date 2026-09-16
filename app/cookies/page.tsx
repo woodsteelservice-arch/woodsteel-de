@@ -6,7 +6,7 @@ import { WhatsAppButton } from "@/components/WhatsAppButton";
 import { CookieSettingsButton } from "@/components/CookieSettingsButton";
 
 export const metadata: Metadata = {
-  title: "Cookies - WoodSteel",
+  title: "Cookies - WS Wintergarten",
   description:
     "Welche Cookies wir auf dieser Website verwenden, wozu sie dienen und wie Sie Ihre Einwilligung jederzeit ändern oder widerrufen.",
   alternates: { canonical: "https://woodsteel.sk/cookies/" },
@@ -44,7 +44,7 @@ export default function CookiesPage() {
         <section className="pt-32 lg:pt-40 pb-12 bg-cream/40">
           <div className="max-w-7xl mx-auto px-5 lg:px-8 text-center">
             <div className="text-eyebrow text-gold mb-4 inline-flex items-center gap-2">
-              <Link href="/" className="hover:text-brown">WoodSteel</Link>
+              <Link href="/" className="hover:text-brown">WS Wintergarten</Link>
               <span className="opacity-50">/</span>
               <span className="text-mutedbrand">Cookies</span>
             </div>

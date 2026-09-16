@@ -24,13 +24,16 @@ export async function generateMetadata({
   const post = getBlogPost(slug);
   if (!post) return {};
   const seo = prodMeta(`/${slug}/`);
+  // Titulok aj popis berieme z nemeckých dát článku — v `seo-export.json` sú
+  // slovenské texty z crawlu woodsteel.sk a v záložke prehliadača by svietilo
+  // staré „WoodSteel.sk".
   return {
-    title: seo?.title || `${post.title} - WoodSteel.sk`,
-    description: seo?.meta_description || post.excerpt,
+    title: `${post.title} - WS Wintergarten`,
+    description: post.excerpt,
     alternates: { canonical: `https://woodsteel.sk/${slug}/` },
     openGraph: {
-      title: seo?.title || post.title,
-      description: seo?.meta_description || post.excerpt,
+      title: post.title,
+      description: post.excerpt,
       type: "article",
       images: seo?.og_image ? [seo.og_image] : [post.image],
     },
@@ -120,7 +123,7 @@ export default async function ArticleAtRoot({
           <section className="py-16 lg:py-20 bg-cream/40">
             <div className="max-w-7xl mx-auto px-5 lg:px-8">
               <h2 className="font-display font-bold text-2xl lg:text-3xl text-brown mb-10">
-                Ďalšie články z kategórie {post.category}
+                Weitere Beiträge aus der Kategorie {post.category}
               </h2>
               <div className="grid grid-cols-1 md:grid-cols-3 gap-x-6 gap-y-10">
                 {related.map((p) => (

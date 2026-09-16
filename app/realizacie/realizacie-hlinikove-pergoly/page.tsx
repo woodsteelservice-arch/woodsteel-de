@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { RealizationsSubpage } from "@/components/RealizationsSubpage";
 
 export const metadata: Metadata = {
-  title: "Referenzen - Aluminium-Pergolen - WoodSteel",
+  title: "Referenzen - Aluminium-Pergolen - WS Wintergarten",
   description: "Unsere fertigen Aluminium-Pergolen nach Maß.",
   alternates: { canonical: "https://woodsteel.sk/realizacie/realizacie-hlinikove-pergoly/" },
 };

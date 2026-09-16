@@ -3,7 +3,7 @@ import { ProductSubpage } from "@/components/ProductSubpage";
 import { zimnaZahradaFaqs } from "@/lib/faqs";
 
 export const metadata: Metadata = {
-  title: "Aluminium-Wintergärten - WoodSteel",
+  title: "Aluminium-Wintergärten - WS Wintergarten",
   description:
     "Aluminium-Wintergärten nach Maß. Schiebesysteme, wartungsfreie pulverbeschichtete Konstruktion, 5+ Jahre Garantie.",
   alternates: { canonical: "https://woodsteel.sk/zimne-zahrady/hlinikove-zimne-zahrady/" },

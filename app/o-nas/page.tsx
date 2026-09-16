@@ -13,7 +13,7 @@ import { cn } from "@/lib/utils";
 import { stats } from "@/lib/data";
 
 export const metadata: Metadata = {
-  title: "Über uns - WoodSteel",
+  title: "Über uns - WS Wintergarten",
   description:
     "Eigene Fertigung und Montage in der Slowakei seit 2021. Ein Team, das den Auftrag von der Planung bis zur Übergabe begleitet.",
   alternates: { canonical: "https://woodsteel.sk/o-nas/" },
@@ -68,7 +68,7 @@ export default function ONasPage() {
               Wir begleiten den Prozess von&nbsp;A&nbsp;bis&nbsp;Z
             </h2>
             <p className="mt-7 text-lg text-charcoal leading-relaxed">
-              WoodSteel ist ein slowakisches Unternehmen, das sich auf Außenkonstruktionen
+              WS Wintergarten ist ein slowakisches Unternehmen, das sich auf Außenkonstruktionen
               aus Holz und Aluminium spezialisiert hat — Pergolen, Wintergärten
               und Terrassenverglasungen. Unseren Kunden bieten wir umfassende Leistungen
               vom Entwurf bis zur fertigen Umsetzung.

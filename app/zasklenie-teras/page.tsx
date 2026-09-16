@@ -14,7 +14,7 @@ import { zasklenieFaqs } from "@/lib/faqs";
 import { JsonLd, productSchema, faqSchema } from "@/lib/schema";
 
 export const metadata: Metadata = {
-  title: "Terrassenverglasung - WoodSteel",
+  title: "Terrassenverglasung - WS Wintergarten",
   description:
     "Terrassen- und Balkonverglasung mit und ohne Rahmen. Schützt vor Wind und Regen, die Terrasse nutzen Sie auch außerhalb der Saison.",
   alternates: { canonical: "https://woodsteel.sk/zasklenie-teras/" },
@@ -64,7 +64,7 @@ export default function ZasklenieTerasPage() {
     <>
       <JsonLd
         data={productSchema({
-          name: "WoodSteel Terrassenverglasung",
+          name: "WS Wintergarten Terrassenverglasung",
           description:
             "Rahmenlose Schiebesysteme für die Terrassenverglasung. Im Sommer offen, im Winter ein geschlossener Raum.",
           image:
@@ -87,7 +87,7 @@ export default function ZasklenieTerasPage() {
           <div className="absolute inset-0 bg-gradient-to-t from-brown/95 via-brown/60 to-brown/20" />
           <div className="relative z-10 max-w-7xl mx-auto w-full px-5 lg:px-8 pb-20 pt-32 lg:pb-24 lg:pt-40">
             <div className="text-eyebrow text-gold mb-4 inline-flex items-center gap-2">
-              <Link href="/" className="hover:text-white transition-colors">WoodSteel</Link>
+              <Link href="/" className="hover:text-white transition-colors">WS Wintergarten</Link>
               <span>/</span>
               <span className="text-white">Terrassenverglasung</span>
             </div>
@@ -115,7 +115,7 @@ export default function ZasklenieTerasPage() {
           <div className="max-w-3xl mx-auto px-5 lg:px-8 text-center">
             <div className="text-eyebrow text-gold mb-4 inline-flex items-center gap-2">
               <span className="w-8 h-px bg-gold/60" />
-              Terrassenverglasung von WoodSteel
+              Terrassenverglasung von WS Wintergarten
             </div>
             <h2 className="text-display-2 font-bold text-brown">
               Eine Terrasse, die Sie auch außerhalb der Saison nutzen
@@ -172,7 +172,7 @@ export default function ZasklenieTerasPage() {
       </main>
       <Footer />
       <WhatsAppButton />
-      <ProductStickyCTA productName="Zasklenie terás" />
+      <ProductStickyCTA productName="Terrassenverglasung" />
     </>
   );
 }

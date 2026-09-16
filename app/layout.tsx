@@ -19,11 +19,11 @@ const manrope = Manrope({
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://woodsteel.sk"),
-  title: "WoodSteel - Wintergärten, Pergolen und Terrassenverglasung",
+  title: "WS Wintergarten - Wintergärten, Pergolen und Terrassenverglasung",
   description:
     "Eigene Fertigung und Montage. Angebot binnen 24 Stunden, kostenloser Vor-Ort-Termin. 250+ Projekte, 5 Jahre Garantie.",
   openGraph: {
-    title: "WoodSteel — Ein Außenbereich, den Sie das ganze Jahr lieben",
+    title: "WS Wintergarten — Ein Außenbereich, den Sie das ganze Jahr lieben",
     description:
       "Pergolen, Wintergärten, Terrassenverglasung. Eigene Fertigung und Montage seit 2021.",
     type: "website",

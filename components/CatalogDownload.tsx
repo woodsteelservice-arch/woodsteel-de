@@ -72,7 +72,7 @@ export function CatalogDownload() {
             <div className="relative overflow-hidden rounded-xl shadow-[0_28px_70px_rgba(0,0,0,0.45)] transition-transform duration-700 ease-out [transform:rotate(-3deg)] group-hover:[transform:rotate(0deg)_translateY(-6px)]">
               <Image
                 src="/images/katalog-cover.jpg"
-                alt="Titelseite des WoodSteel-PDF-Katalogs — Wintergärten"
+                alt="Titelseite des WS Wintergarten-PDF-Katalogs — Wintergärten"
                 width={820}
                 height={1161}
                 sizes="(min-width:1024px) 320px, 260px"

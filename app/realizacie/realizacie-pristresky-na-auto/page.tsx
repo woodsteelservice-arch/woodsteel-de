@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { RealizationsSubpage } from "@/components/RealizationsSubpage";
 
 export const metadata: Metadata = {
-  title: "Referenzen - Carports - WoodSteel",
+  title: "Referenzen - Carports - WS Wintergarten",
   description: "Unsere fertigen Carports — Aluminiumkonstruktionen nach Maß.",
   alternates: { canonical: "https://woodsteel.sk/realizacie/realizacie-pristresky-na-auto/" },
 };

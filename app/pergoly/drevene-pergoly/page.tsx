@@ -3,7 +3,7 @@ import { ProductSubpage } from "@/components/ProductSubpage";
 import { pergolaFaqs } from "@/lib/faqs";
 
 export const metadata: Metadata = {
-  title: "Holz-Pergolen - WoodSteel",
+  title: "Holz-Pergolen - WS Wintergarten",
   description:
     "Holz-Pergolen nach Maß aus Brettschichtholz. Natürliche Wärme, Formstabilität und Vorbereitung für eine spätere Verglasung. Eigene Fertigung.",
   alternates: { canonical: "https://woodsteel.sk/pergoly/drevene-pergoly/" },

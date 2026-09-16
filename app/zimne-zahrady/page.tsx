@@ -16,7 +16,7 @@ import { zimnaZahradaFaqs } from "@/lib/faqs";
 import { JsonLd, productSchema, faqSchema } from "@/lib/schema";
 
 export const metadata: Metadata = {
-  title: "Wintergärten - WoodSteel",
+  title: "Wintergärten - WS Wintergarten",
   description:
     "Holz- und Aluminium-Wintergärten nach Maß. Verglasung mit und ohne Rahmen, eigene Fertigung und Montage.",
   alternates: { canonical: "https://woodsteel.sk/zimne-zahrady/" },
@@ -58,7 +58,7 @@ export default function ZimneZahradyPage() {
     <>
       <JsonLd
         data={productSchema({
-          name: "WoodSteel Wintergärten",
+          name: "WS Wintergarten Wintergärten",
           description:
             "Wintergärten aus Aluminium oder Holz nach Maß. Verglasung mit und ohne Rahmen, Schiebesysteme. Eigene Fertigung.",
           image:
@@ -72,7 +72,7 @@ export default function ZimneZahradyPage() {
         <section className="relative min-h-[80svh] flex items-end overflow-hidden">
           <Image
             src="/images/zimna-zahrada-hero.jpeg"
-            alt="Aluminium-Wintergarten von WoodSteel"
+            alt="Aluminium-Wintergarten von WS Wintergarten"
             fill
             priority
             sizes="100vw"
@@ -81,7 +81,7 @@ export default function ZimneZahradyPage() {
           <div className="absolute inset-0 bg-gradient-to-t from-brown/95 via-brown/60 to-brown/20" />
           <div className="relative z-10 max-w-7xl mx-auto w-full px-5 lg:px-8 pb-20 pt-32 lg:pb-24 lg:pt-40">
             <div className="text-eyebrow text-gold mb-4 inline-flex items-center gap-2">
-              <Link href="/" className="hover:text-white transition-colors">WoodSteel</Link>
+              <Link href="/" className="hover:text-white transition-colors">WS Wintergarten</Link>
               <span>/</span>
               <span className="text-white">Wintergärten</span>
             </div>
@@ -105,7 +105,7 @@ export default function ZimneZahradyPage() {
 
         <section id="variants" className="py-24 lg:py-32 bg-white">
           <div className="max-w-7xl mx-auto px-5 lg:px-8">
-            <SectionHeader eyebrow="Varianty" title="Zwei Ausführungen, ein Qualitätsstandard" subtitle="Sie wählen Material und Nutzungsart — technische Lösung und Montage bleiben bei uns." />
+            <SectionHeader eyebrow="Varianten" title="Zwei Ausführungen, ein Qualitätsstandard" subtitle="Sie wählen Material und Nutzungsart — technische Lösung und Montage bleiben bei uns." />
             <div className="mt-16 space-y-16 lg:space-y-24">
               {variants.map((v, i) => (
                 <div key={v.name} className={`grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 items-center ${i % 2 === 1 ? "lg:[&>*:first-child]:order-2" : ""}`}>
@@ -117,7 +117,7 @@ export default function ZimneZahradyPage() {
                     <h3 className="mt-3 text-display-3 font-bold text-brown">{v.name}</h3>
                     <p className="mt-5 text-mutedbrand leading-relaxed">{v.description}</p>
                     <Link href="/akcna-cenova-ponuka" className="mt-8 inline-flex items-center gap-2 py-2 text-gold font-semibold text-sm hover:gap-3 transition-all">
-                      Vyžiadať ponuku <ArrowRight size={16} />
+                      Angebot anfordern <ArrowRight size={16} />
                     </Link>
                   </div>
                 </div>
@@ -129,9 +129,9 @@ export default function ZimneZahradyPage() {
         <section className="py-24 lg:py-32 bg-cream/50">
           <div className="max-w-7xl mx-auto px-5 lg:px-8 grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
             <div>
-              <div className="text-eyebrow text-gold mb-4">Štandardná výbava</div>
-              <h2 className="text-display-2 font-bold text-brown">Bývanie pod hviezdami, aj v zime.</h2>
-              <p className="mt-6 text-mutedbrand leading-relaxed">Jeder Wintergarten von WoodSteel durchläuft denselben Prozess in fünf Schritten — vom persönlichen Aufmaß bis zur Endmontage durch unser Team.</p>
+              <div className="text-eyebrow text-gold mb-4">Serienmäßige Ausstattung</div>
+              <h2 className="text-display-2 font-bold text-brown">Wohnen unter Sternen — auch im Winter.</h2>
+              <p className="mt-6 text-mutedbrand leading-relaxed">Jeder Wintergarten von WS Wintergarten durchläuft denselben Prozess in fünf Schritten — vom persönlichen Aufmaß bis zur Endmontage durch unser Team.</p>
             </div>
             <ul className="grid sm:grid-cols-2 gap-x-6 gap-y-4">
               {features.map((f) => (

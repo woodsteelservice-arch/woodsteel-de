@@ -100,7 +100,7 @@ export function Footer() {
         </div>
 
         <div className="mt-12 sm:mt-16 pt-6 sm:pt-8 border-t border-white/10 flex flex-col md:flex-row justify-between items-start md:items-center gap-4 text-xs text-cream/55">
-          <div>© {new Date().getFullYear()} WoodSteel. Alle Rechte vorbehalten.</div>
+          <div>© {new Date().getFullYear()} WS Wintergarten. Alle Rechte vorbehalten.</div>
           <div className="flex gap-6">
             <Link href="/ochrana-osobnych-udajov" className="inline-block py-2 hover:text-gold transition-colors">Datenschutz</Link>
             <Link href="/cookies" className="inline-block py-2 hover:text-gold transition-colors">Cookies</Link>

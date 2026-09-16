@@ -7,7 +7,7 @@ import { InquiryForm } from "@/components/InquiryForm";
 import { WhatsAppButton } from "@/components/WhatsAppButton";
 
 export const metadata: Metadata = {
-  title: "Angebot anfordern - WoodSteel",
+  title: "Angebot anfordern - WS Wintergarten",
   description:
     "Fordern Sie ein unverbindliches Angebot binnen 24 Stunden an. Kostenloser Termin und Aufmaß direkt bei Ihnen.",
   alternates: { canonical: "https://woodsteel.sk/akcna-cenova-ponuka/" },
@@ -30,7 +30,7 @@ export default function CenovaPonukaPage() {
         <section className="pt-32 lg:pt-40 pb-12 bg-cream/40">
           <div className="max-w-7xl mx-auto px-5 lg:px-8 text-center">
             <div className="text-eyebrow text-gold mb-4 inline-flex items-center gap-2">
-              <Link href="/" className="hover:text-brown">WoodSteel</Link>
+              <Link href="/" className="hover:text-brown">WS Wintergarten</Link>
               <span className="opacity-50">/</span>
               <span className="text-mutedbrand">Angebot</span>
             </div>

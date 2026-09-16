@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { GlazingSystemPage } from "@/components/GlazingSystemPage";
 
 export const metadata: Metadata = {
-  title: "Rahmenlose Terrassenverglasung - WoodSteel",
+  title: "Rahmenlose Terrassenverglasung - WS Wintergarten",
   description:
     "Rahmenloses Schiebesystem für die Terrassenverglasung. Einfach-Sicherheitsglas, bis 3 Meter Höhe, minimalistischer Auftritt ohne sichtbare Rahmen.",
   alternates: { canonical: "https://woodsteel.sk/zasklenie-teras/bezramove-zasklenie/" },

@@ -16,7 +16,7 @@ import { pergolaFaqs } from "@/lib/faqs";
 import { JsonLd, productSchema, faqSchema } from "@/lib/schema";
 
 export const metadata: Metadata = {
-  title: "Pergolen - WoodSteel",
+  title: "Pergolen - WS Wintergarten",
   description:
     "Holz- und Aluminium-Pergolen nach Maß — Planung, eigene Fertigung und Montage. Carports und Vorbereitung für eine spätere Verglasung.",
   alternates: { canonical: "https://woodsteel.sk/pergoly/" },
@@ -67,7 +67,7 @@ export default function PergolyPage() {
     <>
       <JsonLd
         data={productSchema({
-          name: "Pergoly WoodSteel",
+          name: "Pergoly WS Wintergarten",
           description:
             "Aluminium- und Holz-Pergolen sowie Aluminium-Carports. Eigene Fertigung mit 5+ Jahren Garantie.",
           image:
@@ -82,7 +82,7 @@ export default function PergolyPage() {
         <section className="relative min-h-[80svh] flex items-end overflow-hidden">
           <Image
             src="/images/hlinikova-pergola-trencin.jpeg"
-            alt="Aluminium-Pergola von WoodSteel"
+            alt="Aluminium-Pergola von WS Wintergarten"
             fill
             priority
             sizes="100vw"
@@ -91,9 +91,9 @@ export default function PergolyPage() {
           <div className="absolute inset-0 bg-gradient-to-t from-brown/95 via-brown/60 to-brown/20" />
           <div className="relative z-10 max-w-7xl mx-auto w-full px-5 lg:px-8 pb-20 pt-32 lg:pb-24 lg:pt-40">
             <div className="text-eyebrow text-gold mb-4 inline-flex items-center gap-2">
-              <Link href="/" className="hover:text-white transition-colors">WoodSteel</Link>
+              <Link href="/" className="hover:text-white transition-colors">WS Wintergarten</Link>
               <span>/</span>
-              <span className="text-white">Pergoly</span>
+              <span className="text-white">Pergolen</span>
             </div>
             <h1 className="text-display-1 font-extrabold text-white max-w-3xl">
               Pergolen nach Maß, die <span className="text-gold">Generationen überdauern.</span>
@@ -168,12 +168,12 @@ export default function PergolyPage() {
         <section className="py-24 lg:py-32 bg-cream/50">
           <div className="max-w-7xl mx-auto px-5 lg:px-8 grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
             <div>
-              <div className="text-eyebrow text-gold mb-4">Štandardná výbava</div>
+              <div className="text-eyebrow text-gold mb-4">Serienmäßige Ausstattung</div>
               <h2 className="text-display-2 font-bold text-brown">
                 Bis ins kleinste Detail durchdacht
               </h2>
               <p className="mt-6 text-mutedbrand leading-relaxed">
-                Jede Pergola von WoodSteel durchläuft denselben Prozess in fünf Schritten — vom
+                Jede Pergola von WS Wintergarten durchläuft denselben Prozess in fünf Schritten — vom
                 persönlichen Aufmaß bis zur Endmontage durch unser Team.
               </p>
             </div>
@@ -194,7 +194,7 @@ export default function PergolyPage() {
         <section className="py-24 lg:py-32 bg-white">
           <div className="max-w-7xl mx-auto px-5 lg:px-8">
             <SectionHeader
-              eyebrow="Pergola-Projekte"
+              eyebrow="Referenzen"
               title="Unsere Pergolen bei echten Kunden"
               subtitle="Aus Aluminium und Holz, in der Stadt wie auf dem Land."
             />

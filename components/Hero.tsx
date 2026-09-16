@@ -7,7 +7,7 @@ export function Hero() {
     <section className="relative min-h-[88svh] sm:min-h-[100svh] flex items-end overflow-hidden">
       <Image
         src="/images/hero-dunajska-luzna.jpg"
-        alt="Wintergarten von WoodSteel"
+        alt="Wintergarten von WS Wintergarten"
         fill
         priority
         sizes="100vw"

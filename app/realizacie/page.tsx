@@ -9,7 +9,7 @@ import { FinalCTA } from "@/components/FinalCTA";
 import { realizations } from "@/lib/data";
 
 export const metadata: Metadata = {
-  title: "Referenzen - WoodSteel",
+  title: "Referenzen - WS Wintergarten",
   description:
     "Fotos fertiger Pergolen, Wintergärten, Verglasungen und Carports aus abgeschlossenen Projekten.",
   alternates: { canonical: "https://woodsteel.sk/realizacie/" },
@@ -23,7 +23,7 @@ export default function RealizaciePage() {
         <section className="relative pt-32 lg:pt-40 pb-12 bg-cream/40">
           <div className="max-w-7xl mx-auto px-5 lg:px-8 text-center">
             <div className="text-eyebrow text-gold mb-4 inline-flex items-center gap-2">
-              <Link href="/" className="hover:text-brown transition-colors">WoodSteel</Link>
+              <Link href="/" className="hover:text-brown transition-colors">WS Wintergarten</Link>
               <span className="opacity-50">/</span>
               <span className="text-mutedbrand">Referenzen</span>
             </div>

@@ -27,7 +27,7 @@ function Instagram({ size = 18, className = "" }: { size?: number; className?: s
 }
 
 export const metadata: Metadata = {
-  title: "Kontakt - WoodSteel",
+  title: "Kontakt - WS Wintergarten",
   description:
     "Schreiben Sie uns und vereinbaren Sie einen kostenlosen Termin bei Ihnen zu Hause. Wir sind in der Slowakei, Tschechien, Österreich und Ungarn tätig.",
   alternates: { canonical: "https://woodsteel.sk/kontakt/" },
@@ -41,7 +41,7 @@ export default function KontaktPage() {
         <section className="pt-32 lg:pt-40 pb-12 bg-cream/40">
           <div className="max-w-7xl mx-auto px-5 lg:px-8 text-center">
             <div className="text-eyebrow text-gold mb-4 inline-flex items-center gap-2">
-              <Link href="/" className="hover:text-brown">WoodSteel</Link>
+              <Link href="/" className="hover:text-brown">WS Wintergarten</Link>
               <span className="opacity-50">/</span>
               <span className="text-mutedbrand">Kontakt</span>
             </div>

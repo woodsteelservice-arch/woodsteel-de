@@ -40,7 +40,7 @@ export function ProductSubpage({ breadcrumb, hero, intro, features, realizationF
           <div className="absolute inset-0 bg-gradient-to-t from-brown/95 via-brown/60 to-brown/20" />
           <div className="relative z-10 max-w-7xl mx-auto w-full px-5 lg:px-8 pb-16 pt-32 lg:pb-24 lg:pt-40">
             <div className="text-eyebrow text-gold mb-4 inline-flex items-center gap-2">
-              <Link href="/" className="hover:text-white transition-colors">WoodSteel</Link>
+              <Link href="/" className="hover:text-white transition-colors">WS Wintergarten</Link>
               <span>/</span>
               <Link href={breadcrumb.parentHref} className="hover:text-white transition-colors">{breadcrumb.parentLabel}</Link>
               <span>/</span>
@@ -62,7 +62,7 @@ export function ProductSubpage({ breadcrumb, hero, intro, features, realizationF
         <section className="py-16 sm:py-20 lg:py-32 bg-cream/40">
           <div className="max-w-7xl mx-auto px-5 lg:px-8 grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
             <div>
-              <div className="text-eyebrow text-gold mb-4">Detaily</div>
+              <div className="text-eyebrow text-gold mb-4">Details</div>
               <h2 className="text-display-2 font-bold text-brown">{intro.title}</h2>
               <p className="mt-6 text-mutedbrand leading-relaxed">{intro.body}</p>
             </div>

@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { ProductSubpage } from "@/components/ProductSubpage";
 
 export const metadata: Metadata = {
-  title: "Carports - WoodSteel",
+  title: "Carports - WS Wintergarten",
   description:
     "Aluminium-Carports nach Maß — am Haus verankert oder freistehend. Entwässerung verdeckt in der Konstruktion, eigene Fertigung.",
   alternates: { canonical: "https://woodsteel.sk/pergoly/pristresky-na-auto/" },

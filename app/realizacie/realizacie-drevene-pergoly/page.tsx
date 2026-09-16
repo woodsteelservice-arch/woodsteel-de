@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { RealizationsSubpage } from "@/components/RealizationsSubpage";
 
 export const metadata: Metadata = {
-  title: "Referenzen - Holz-Pergolen - WoodSteel",
+  title: "Referenzen - Holz-Pergolen - WS Wintergarten",
   description: "Unsere fertigen Holz-Pergolen für Einfamilienhäuser.",
   alternates: { canonical: "https://woodsteel.sk/realizacie/realizacie-drevene-pergoly/" },
 };

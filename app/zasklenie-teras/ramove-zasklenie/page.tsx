@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { GlazingSystemPage } from "@/components/GlazingSystemPage";
 
 export const metadata: Metadata = {
-  title: "Terrassenverglasung mit Rahmen - WoodSteel",
+  title: "Terrassenverglasung mit Rahmen - WS Wintergarten",
   description:
     "Aluminium-Schiebesystem mit Rahmen für die Terrassenverglasung. Einfach- oder Isolierverglasung, bis 2,7 Meter Höhe, gutes Preis-Leistungs-Verhältnis.",
   alternates: { canonical: "https://woodsteel.sk/zasklenie-teras/ramove-zasklenie/" },

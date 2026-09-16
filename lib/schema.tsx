@@ -6,7 +6,7 @@ export const SITE_URL = "https://woodsteel.sk";
 export const localBusinessSchema = {
   "@context": "https://schema.org",
   "@type": "LocalBusiness",
-  name: "WoodSteel",
+  name: "WS Wintergarten",
   url: SITE_URL,
   logo: `${SITE_URL}/logo/ws-wintergarten-logo.png`,
   image: `${SITE_URL}/logo/ws-wintergarten-logo.png`,
@@ -56,7 +56,7 @@ export function productSchema(opts: {
     name: opts.name,
     description: opts.description,
     image: opts.image,
-    brand: { "@type": "Brand", name: "WoodSteel" },
+    brand: { "@type": "Brand", name: "WS Wintergarten" },
     category: opts.category,
   };
   if (opts.priceFrom) {

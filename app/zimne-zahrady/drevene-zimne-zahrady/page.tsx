@@ -3,7 +3,7 @@ import { ProductSubpage } from "@/components/ProductSubpage";
 import { zimnaZahradaFaqs } from "@/lib/faqs";
 
 export const metadata: Metadata = {
-  title: "Holz-Wintergärten - WoodSteel",
+  title: "Holz-Wintergärten - WS Wintergarten",
   description:
     "Holz-Wintergärten aus Brettschichtholz. Wärme und klassischer Charakter, 5+ Jahre Garantie, eigene Fertigung.",
   alternates: { canonical: "https://woodsteel.sk/zimne-zahrady/drevene-zimne-zahrady/" },

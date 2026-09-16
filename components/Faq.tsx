@@ -22,7 +22,7 @@ interface Props {
 
 export function Faq({
   items,
-  eyebrow = "Časté otázky",
+  eyebrow = "Häufige Fragen",
   title = "FAQ",
   subtitle,
   compact = false,

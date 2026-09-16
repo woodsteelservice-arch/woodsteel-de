@@ -34,7 +34,7 @@ export function GlazingSystemPage({ tag, name, claim, description, features, ima
         <section className="pt-32 lg:pt-40 pb-12 lg:pb-16 bg-cream/40">
           <div className="max-w-7xl mx-auto px-5 lg:px-8">
             <div className="text-eyebrow text-gold mb-4 inline-flex flex-wrap items-center gap-2">
-              <Link href="/" className="hover:text-brown transition-colors">WoodSteel</Link>
+              <Link href="/" className="hover:text-brown transition-colors">WS Wintergarten</Link>
               <span className="opacity-50">/</span>
               <Link href="/zasklenie-teras" className="hover:text-brown transition-colors">
                 Terrassenverglasung
@@ -86,7 +86,7 @@ export function GlazingSystemPage({ tag, name, claim, description, features, ima
                   href="/akcna-cenova-ponuka"
                   className="inline-flex justify-center items-center gap-2 px-7 py-4 bg-gold hover:bg-gold-hover text-brown hover:text-white font-semibold rounded-full transition-all shadow-[0_8px_24px_rgba(203,171,88,0.4)] hover:-translate-y-0.5"
                 >
-                  Naceniť zasklenie terasy <ArrowRight size={18} />
+                  Angebot anfordern <ArrowRight size={18} />
                 </Link>
                 <a
                   href="mailto:info@wswintergarten.de"

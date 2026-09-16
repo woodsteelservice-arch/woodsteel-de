@@ -7,7 +7,7 @@ import { WhatsAppButton } from "@/components/WhatsAppButton";
 import { CatalogDownload } from "@/components/CatalogDownload";
 
 export const metadata: Metadata = {
-  title: "Downloads - WoodSteel",
+  title: "Downloads - WS Wintergarten",
   description: "PDF-Kataloge, Reklamationsformulare und Referenzdokumente zum Herunterladen.",
   alternates: { canonical: "https://woodsteel.sk/na-stiahnutie/" },
 };
@@ -22,7 +22,7 @@ type Doc = {
 
 const docs: Doc[] = [
   {
-    title: "WoodSteel Katalog",
+    title: "WS Wintergarten Katalog",
     file: "/download/woodsteel-katalog-de.pdf",
     size: "9,2 MB",
     note: "Vollständiger Produktkatalog — Pergolen, Wintergärten, Verglasung, Zubehör",
@@ -57,9 +57,9 @@ export default function NaStiahnutiePage() {
         <section className="pt-32 lg:pt-40 pb-12 bg-cream/40">
           <div className="max-w-7xl mx-auto px-5 lg:px-8 text-center">
             <div className="text-eyebrow text-gold mb-4 inline-flex items-center gap-2">
-              <Link href="/" className="hover:text-brown">WoodSteel</Link>
+              <Link href="/" className="hover:text-brown">WS Wintergarten</Link>
               <span className="opacity-50">/</span>
-              <span className="text-mutedbrand">Na stiahnutie</span>
+              <span className="text-mutedbrand">Downloads</span>
             </div>
             <h1 className="text-display-1 font-extrabold text-brown">
               Dokumenty <span className="text-gold">na stiahnutie.</span>

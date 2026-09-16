@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { RealizationsSubpage } from "@/components/RealizationsSubpage";
 
 export const metadata: Metadata = {
-  title: "Referenzen - Aluminium-Wintergärten - WoodSteel",
+  title: "Referenzen - Aluminium-Wintergärten - WS Wintergarten",
   description: "Unsere fertigen Aluminium-Wintergärten — wartungsfreie Konstruktionen nach Maß.",
   alternates: { canonical: "https://woodsteel.sk/realizacie/realizacie-hlinikove-zimne-zahrady/" },
 };

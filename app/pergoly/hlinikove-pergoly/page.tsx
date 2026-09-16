@@ -3,7 +3,7 @@ import { ProductSubpage } from "@/components/ProductSubpage";
 import { pergolaFaqs } from "@/lib/faqs";
 
 export const metadata: Metadata = {
-  title: "Aluminium-Pergolen - WoodSteel",
+  title: "Aluminium-Pergolen - WS Wintergarten",
   description:
     "Aluminium-Pergolen nach Maß mit integrierter Rinne und Vorbereitung für eine spätere Verglasung. Witterungsbeständig, pflegeleicht, mit modernen Linien.",
   alternates: { canonical: "https://woodsteel.sk/pergoly/hlinikove-pergoly/" },
