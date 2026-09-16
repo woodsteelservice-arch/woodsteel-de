@@ -36,7 +36,7 @@ export function FinalCTA() {
                 </div>
               </a>
               <a
-                href="mailto:info@woodsteel.sk"
+                href="mailto:info@wswintergarten.de"
                 className="flex items-center gap-4 group"
               >
                 <div className="w-12 h-12 rounded-full bg-gold/15 group-hover:bg-gold flex items-center justify-center transition-colors">
@@ -45,7 +45,7 @@ export function FinalCTA() {
                 <div>
                   <div className="text-xs text-eyebrow text-mutedbrand">Schreiben Sie uns</div>
                   <div className="font-display font-bold text-lg text-brown group-hover:text-gold transition-colors">
-                    info@woodsteel.sk
+                    info@wswintergarten.de
                   </div>
                 </div>
               </a>

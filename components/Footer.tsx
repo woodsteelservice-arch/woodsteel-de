@@ -85,9 +85,9 @@ export function Footer() {
                 </a>
               </li>
               <li>
-                <a href="mailto:info@woodsteel.sk" className="inline-flex items-center gap-2 py-2 hover:text-gold transition-colors">
+                <a href="mailto:info@wswintergarten.de" className="inline-flex items-center gap-2 py-2 hover:text-gold transition-colors">
                   <Mail size={14} className="text-gold" />
-                  info@woodsteel.sk
+                  info@wswintergarten.de
                 </a>
               </li>
             </ul>

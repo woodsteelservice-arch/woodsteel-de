@@ -55,14 +55,14 @@ export default function KontaktPage() {
                       </div>
                     </div>
                   </a>
-                  <a href="mailto:info@woodsteel.sk" className="flex items-center gap-4 group">
+                  <a href="mailto:info@wswintergarten.de" className="flex items-center gap-4 group">
                     <div className="w-12 h-12 rounded-full bg-gold/15 group-hover:bg-gold flex items-center justify-center transition-colors shrink-0">
                       <Mail size={18} className="text-gold group-hover:text-white" />
                     </div>
                     <div>
                       <div className="text-xs text-eyebrow text-mutedbrand">E-mail</div>
                       <div className="font-display font-bold text-lg text-brown group-hover:text-gold">
-                        info@woodsteel.sk
+                        info@wswintergarten.de
                       </div>
                     </div>
                   </a>

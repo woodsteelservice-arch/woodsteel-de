@@ -32,7 +32,7 @@ const docs: Doc[] = [
     title: "Reklamationsformular (PDF)",
     file: "/download/reklamacny-formular.pdf",
     size: "41 KB",
-    note: "Ausdrucken, ausfüllen und per Post oder E-Mail an info@woodsteel.sk senden",
+    note: "Ausdrucken, ausfüllen und per Post oder E-Mail an info@wswintergarten.de senden",
     type: "pdf",
   },
   {

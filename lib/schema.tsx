@@ -13,7 +13,7 @@ export const localBusinessSchema = {
   description:
     "Pergolen, Wintergärten und Terrassenverglasung nach Maß. Eigene Fertigung und Montage seit 2021.",
   telephone: "+421904473111",
-  email: "info@woodsteel.sk",
+  email: "info@wswintergarten.de",
   priceRange: "€€€",
   address: {
     "@type": "PostalAddress",
