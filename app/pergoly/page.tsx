@@ -67,12 +67,12 @@ export default function PergolyPage() {
     <>
       <JsonLd
         data={productSchema({
-          name: "Pergoly WS Wintergarten",
+          name: "Pergolen von WS Wintergarten",
           description:
             "Aluminium- und Holz-Pergolen sowie Aluminium-Carports. Eigene Fertigung mit 5+ Jahren Garantie.",
           image:
             "/images/hlinikova-pergola-trencin.jpeg",
-          category: "Pergoly",
+          category: "Pergolen",
         })}
       />
       <JsonLd data={faqSchema(pergolaFaqs)} />

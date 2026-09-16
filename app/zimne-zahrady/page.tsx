@@ -58,7 +58,7 @@ export default function ZimneZahradyPage() {
     <>
       <JsonLd
         data={productSchema({
-          name: "WS Wintergarten Wintergärten",
+          name: "Wintergärten von WS Wintergarten",
           description:
             "Wintergärten aus Aluminium oder Holz nach Maß. Verglasung mit und ohne Rahmen, Schiebesysteme. Eigene Fertigung.",
           image:

@@ -64,7 +64,7 @@ export default function ZasklenieTerasPage() {
     <>
       <JsonLd
         data={productSchema({
-          name: "WS Wintergarten Terrassenverglasung",
+          name: "Terrassenverglasung von WS Wintergarten",
           description:
             "Rahmenlose Schiebesysteme für die Terrassenverglasung. Im Sommer offen, im Winter ein geschlossener Raum.",
           image:
