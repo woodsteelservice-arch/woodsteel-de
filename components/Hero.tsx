@@ -39,7 +39,9 @@ export function Hero() {
 
           <p className="text-base sm:text-lg lg:text-xl text-cream/90 mt-5 sm:mt-6 max-w-2xl leading-relaxed reveal" style={{ animationDelay: "200ms" }}>
             Pergolen, Wintergärten, Terrassenverglasung und Carports — nach
-            Maß. Von der ersten Beratung und dem Aufmaß bis zur fachgerechten
+            Maß.
+            <br />
+            Von der ersten Beratung und dem Aufmaß bis zur fachgerechten
             Montage und finalen Übergabe übernehmen wir die komplette Planung
             und Umsetzung mit unserem eigenen erfahrenen Team.
           </p>
