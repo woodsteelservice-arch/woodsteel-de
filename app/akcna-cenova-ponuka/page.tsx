@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { Mail, Zap, Clock, Check } from "lucide-react";
+import { Mail, Zap, Check } from "lucide-react";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import { InquiryForm } from "@/components/InquiryForm";
@@ -15,11 +15,10 @@ export const metadata: Metadata = {
 
 const promises = [
   "Wir reagieren an Werktagen innerhalb einer Stunde",
-  "Angebot innerhalb 48 Stunden",
-  "Kostenloser Termin bei Ihnen zu Hause",
+  "Angebot innerhalb 24 bis 48 Stunden",
+  "Unverbindlicher und kostenloser Beratungstermin bei Ihnen Zuhause",
   "Visualisierung im Angebot inbegriffen",
-  "Unverbindlich und ohne Druck",
-  "Der Angebotspreis ist der Rechnungspreis",
+  "Garantierter Festpreis ohne Nachträge",
 ];
 
 export default function CenovaPonukaPage() {
@@ -66,18 +65,6 @@ export default function CenovaPonukaPage() {
                     </li>
                   ))}
                 </ul>
-              </div>
-
-              {/* Speed metric */}
-              <div className="bg-gradient-to-br from-brown to-wood rounded-2xl p-7 text-white">
-                <div className="flex items-center gap-3 mb-4">
-                  <Clock size={20} className="text-gold" />
-                  <div className="text-eyebrow text-gold">Durchschnittliche Reaktionszeit</div>
-                </div>
-                <div className="font-display font-extrabold text-5xl text-gold">42 min</div>
-                <p className="mt-3 text-cream/85 text-sm leading-relaxed">
-                  In den letzten 30 Tagen. An Werktagen von 8:00 bis 17:00 Uhr.
-                </p>
               </div>
 
               <a href="mailto:info@wswintergarten.de" className="flex items-center gap-4 group">
