@@ -121,7 +121,7 @@ export function Process() {
       <div className="relative max-w-7xl mx-auto px-5 lg:px-8">
         <SectionHeader
           eyebrow="So gehen wir vor"
-          title="Von der ersten Anfrage bis zur schlüsselfertigen Übergabe"
+          title="Von der ersten Anfrage bis zur schlüsselfertigung Übergabe"
           subtitle="Fünf Schritte, bei denen Sie immer wissen, was als Nächstes kommt."
         />
 
