@@ -205,13 +205,12 @@ export const categories = [
   },
 ];
 
-// `meta` = krátky časový alebo vecný údaj ku kroku
 export const process = [
-  { n: "01", title: "Anfrage", meta: "Binnen einer Stunde", description: "Sie rufen an oder schreiben uns." },
-  { n: "02", title: "Vor-Ort-Termin", meta: "Kostenlos", description: "Wir kommen und messen auf." },
-  { n: "03", title: "Angebot", meta: "Binnen 48 Stunden", description: "Ein Angebot nach Maß." },
-  { n: "04", title: "Fertigung", meta: "Eigene Werkstatt", description: "Wir fertigen in der Slowakei." },
-  { n: "05", title: "Montage", meta: "Schlüsselfertig", description: "Wir bauen auf und übergeben." },
+  { n: "01", title: "Anfrage", description: "Sie rufen an oder schreiben uns." },
+  { n: "02", title: "Vor-Ort-Termin", description: "Wir kommen und messen auf." },
+  { n: "03", title: "Angebot", description: "Ein Angebot nach Maß." },
+  { n: "04", title: "Fertigung", description: "In eigener Werkstatt." },
+  { n: "05", title: "Montage", description: "Wir bauen auf und übergeben." },
 ];
 
 // Číslo je vždy prvé — pás ho zobrazuje veľké a odpočítava od nuly,

@@ -9,13 +9,13 @@ import { WhatsAppButton } from "@/components/WhatsAppButton";
 export const metadata: Metadata = {
   title: "Angebot anfordern - WS Wintergarten",
   description:
-    "Fordern Sie ein unverbindliches Angebot binnen 24 Stunden an. Kostenloser Termin und Aufmaß direkt bei Ihnen.",
+    "Fordern Sie ein unverbindliches Angebot innerhalb 48 Stunden an. Kostenloser Termin und Aufmaß direkt bei Ihnen.",
   alternates: { canonical: "https://woodsteel.sk/akcna-cenova-ponuka/" },
 };
 
 const promises = [
-  "Wir reagieren an Werktagen binnen einer Stunde",
-  "Angebot binnen 24-48 Stunden",
+  "Wir reagieren an Werktagen innerhalb einer Stunde",
+  "Angebot innerhalb 48 Stunden",
   "Kostenloser Termin bei Ihnen zu Hause",
   "Visualisierung im Angebot inbegriffen",
   "Unverbindlich und ohne Druck",
@@ -36,7 +36,7 @@ export default function CenovaPonukaPage() {
             </div>
             <h1 className="text-display-1 font-extrabold text-brown max-w-4xl mx-auto">
               Kostenloses Angebot<br className="hidden md:inline" />
-              <span className="text-gold">binnen 24 Stunden.</span>
+              <span className="text-gold">innerhalb 48 Stunden.</span>
             </h1>
             <p className="mt-6 text-mutedbrand text-base lg:text-lg max-w-2xl mx-auto">
               Füllen Sie das kurze Formular aus — unser Vertriebsmitarbeiter meldet sich

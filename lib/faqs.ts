@@ -17,7 +17,7 @@ export const generalFaqs = [
   {
     question: "Wie läuft das Angebot ab?",
     answer:
-      "Sie füllen das Formular aus oder rufen an. Unser Vertriebsmitarbeiter meldet sich an Werktagen binnen einer Stunde, vereinbart einen kostenlosen Vor-Ort-Termin bei Ihnen zu Hause, und innerhalb von 24-48 Stunden haben Sie Angebot und Visualisierung per E-Mail.",
+      "Sie füllen das Formular aus oder rufen an. Unser Vertriebsmitarbeiter meldet sich an Werktagen innerhalb einer Stunde, vereinbart einen kostenlosen Vor-Ort-Termin bei Ihnen zu Hause, und innerhalb von 48 Stunden haben Sie Angebot und Visualisierung per E-Mail.",
   },
   {
     question: "Wie wird bezahlt?",

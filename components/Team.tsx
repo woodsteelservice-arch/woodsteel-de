@@ -16,7 +16,7 @@ export function Team({ bgClass = "bg-cream/50" }: Props) {
         <SectionHeader
           eyebrow="Unser Team"
           title="Die Menschen hinter Ihrem Bauvorhaben"
-          subtitle="Über 25 Mitarbeiter, eigene Fertigung und Montage. Ein Team, das Sie von der ersten Anfrage bis zur Schlüsselübergabe begleitet."
+          subtitle="Über 25 Mitarbeiter, eigene Fertigung und Montage. Ein Team, das Sie von der ersten Anfrage bis zur schlüsselfertigen Übergabe begleitet."
         />
 
         <div className="mt-10 sm:mt-14 lg:mt-16 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 sm:gap-6 lg:gap-8">

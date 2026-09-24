@@ -26,7 +26,9 @@ export function Hero() {
           <div className="reveal">
             <span className="text-eyebrow text-gold inline-flex items-center gap-2">
               <span className="w-8 h-px bg-gold" />
-              Konstruktionen nach Maß seit 2021
+              {/* Veľké ẞ (U+1E9E) — .text-eyebrow text zväčšuje na verzálky
+                  a bežné „ß" by CSS prepísalo na „SS". */}
+              Konstruktionen nach Maẞ seit 2021
             </span>
           </div>
 
@@ -37,14 +39,15 @@ export function Hero() {
 
           <p className="text-base sm:text-lg lg:text-xl text-cream/90 mt-5 sm:mt-6 max-w-2xl leading-relaxed reveal" style={{ animationDelay: "200ms" }}>
             Pergolen, Wintergärten, Terrassenverglasung und Carports — nach
-            Maß. Wir planen und bauen sie mit eigenem Team, vom ersten Aufmaß
-            bis zur Übergabe des fertigen Raums.
+            Maß. Von der ersten Beratung und dem Aufmaß bis zur fachgerechten
+            Montage und finalen Übergabe übernehmen wir die komplette Planung
+            und Umsetzung mit unserem eigenen erfahrenen Team.
           </p>
 
           <div className="mt-6 sm:mt-7 reveal" style={{ animationDelay: "260ms" }}>
             <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/12 backdrop-blur-md border border-gold/40 text-cream text-sm">
               <Zap size={16} className="text-gold" />
-              Angebot binnen 24 Stunden
+              Angebot innerhalb 48 Stunden
             </span>
           </div>
 

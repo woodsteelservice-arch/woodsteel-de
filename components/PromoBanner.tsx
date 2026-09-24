@@ -144,7 +144,7 @@ export function PromoBanner() {
           </div>
 
           <p className="mt-4 font-display text-xl font-bold tracking-tight text-brown">
-            Rabatt in Höhe der MwSt.
+            Rabatt
           </p>
           <p className="mt-1.5 text-sm text-mutedbrand">auf alle Produkte</p>
 

@@ -16,7 +16,7 @@ export function FinalCTA() {
               Wir gestalten Ihre Terrasse nach Ihren Vorstellungen.
             </h2>
             <p className="mt-5 text-mutedbrand text-base lg:text-lg leading-relaxed max-w-xl">
-              Kostenloser Termin bei Ihnen zu Hause + Angebot binnen&nbsp;24-48&nbsp;Stunden.
+              Kostenloser Termin bei Ihnen zu Hause + Angebot innerhalb&nbsp;48&nbsp;Stunden.
               Unverbindlich und ohne Druck.
             </p>
 

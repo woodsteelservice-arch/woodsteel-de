@@ -67,7 +67,7 @@ const PRODUCTS = [
 ];
 
 /** Kedy chce mať zákazník hotovo — pomáha nám plánovať výrobu */
-const TIMING = ["So bald wie möglich", "In 3 Monaten", "In 6 Monaten", "Ich informiere mich noch"];
+const TIMING = ["So schnell wie möglich", "In 3 Monaten", "In 6 Monaten", "Ich informiere mich noch"];
 
 /** Záujem o bezplatnú obhliadku */
 const CONSULT = ["Ja, gerne", "Vorerst nicht"];
@@ -243,7 +243,7 @@ export function InquiryForm({ variant = "card", defaultProduct = "" }: Props) {
       <div className="flex flex-col gap-4 sm:flex-row sm:items-start sm:justify-between">
         <div>
           <h3 className="font-display text-xl sm:text-2xl font-bold text-brown leading-tight">
-            Angebot binnen 24 Stunden
+            Angebot innerhalb 48 Stunden
           </h3>
           <p className="mt-2 text-sm text-mutedbrand">
             Sagen Sie uns, was Sie vorhaben. Wir melden uns mit einer Lösung nach Maß.

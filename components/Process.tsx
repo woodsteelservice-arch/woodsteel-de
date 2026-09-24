@@ -121,7 +121,7 @@ export function Process() {
       <div className="relative max-w-7xl mx-auto px-5 lg:px-8">
         <SectionHeader
           eyebrow="So gehen wir vor"
-          title="Von der ersten Anfrage bis zur Schlüsselübergabe"
+          title="Von der ersten Anfrage bis zur schlüsselfertigen Übergabe"
           subtitle="Fünf Schritte, bei denen Sie immer wissen, was als Nächstes kommt."
         />
 
@@ -237,15 +237,7 @@ export function Process() {
                       )}
                     />
 
-                    <div
-                      className={cn(
-                        "text-eyebrow text-[0.7rem] transition-colors duration-500",
-                        lit ? "text-gold" : "text-mutedbrand/60"
-                      )}
-                    >
-                      {p.meta}
-                    </div>
-                    <h3 className="mt-2 text-lg font-bold text-brown">{p.title}</h3>
+                    <h3 className="text-lg font-bold text-brown">{p.title}</h3>
                     <p className="mt-1.5 text-sm text-mutedbrand leading-relaxed">
                       {p.description}
                     </p>

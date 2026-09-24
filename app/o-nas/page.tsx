@@ -38,7 +38,7 @@ const values = [
   {
     title: "Sorgenfreiheit",
     description:
-      "Der Angebotspreis ist der Rechnungspreis. Termine halten wir ein. Auf Reklamationen reagieren wir binnen 48 Stunden. Das ist die ganze Philosophie.",
+      "Der Angebotspreis ist der Rechnungspreis. Termine halten wir ein. Auf Reklamationen reagieren wir innerhalb 48 Stunden. Das ist die ganze Philosophie.",
   },
 ];
 
@@ -53,7 +53,7 @@ export default function ONasPage() {
           <div className="absolute inset-0 z-[3] bg-gradient-to-t from-brown/95 via-brown/25 to-transparent" />
           <div className="relative z-10 max-w-7xl mx-auto w-full px-5 lg:px-8 pb-16 pt-32">
             <h1 className="text-display-1 font-extrabold text-white max-w-3xl">
-              Wir geben dem Raum <span className="text-gold">eine neue Dimension</span>.
+              Wir geben Ihrem Raum <span className="text-gold">eine neue Dimension</span>.
             </h1>
           </div>
         </section>
@@ -68,7 +68,7 @@ export default function ONasPage() {
               Wir begleiten den Prozess von&nbsp;A&nbsp;bis&nbsp;Z
             </h2>
             <p className="mt-7 text-lg text-charcoal leading-relaxed">
-              WS Wintergarten ist ein slowakisches Unternehmen, das sich auf Außenkonstruktionen
+              WS Wintergarten ist ein Unternehmen, das sich auf Außenkonstruktionen
               aus Holz und Aluminium spezialisiert hat — Pergolen, Wintergärten
               und Terrassenverglasungen. Unseren Kunden bieten wir umfassende Leistungen
               vom Entwurf bis zur fertigen Umsetzung.
