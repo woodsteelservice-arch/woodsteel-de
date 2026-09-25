@@ -117,7 +117,7 @@ export default function KontaktPage() {
                     <div>
                       <div className="text-xs text-eyebrow text-mutedbrand">Facebook</div>
                       <div className="font-display font-bold text-lg text-brown group-hover:text-gold">
-                        WS Wintergarten
+                        WS Wintergärten
                       </div>
                     </div>
                   </a>

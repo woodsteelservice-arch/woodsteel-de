@@ -117,7 +117,7 @@ export function Footer() {
                   className="inline-flex items-center gap-2 py-2 hover:text-gold transition-colors"
                 >
                   <span className="text-gold"><SocialIcon type="facebook" /></span>
-                  WS Wintergarten
+                  WS Wintergärten
                 </a>
               </li>
             </ul>
