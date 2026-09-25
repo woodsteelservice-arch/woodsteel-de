@@ -33,7 +33,10 @@ export const localBusinessSchema = {
       closes: "17:00",
     },
   ],
-  sameAs: ["https://www.instagram.com/ws_wintergarten/"],
+  sameAs: [
+    "https://www.instagram.com/ws_wintergarten/",
+    "https://www.facebook.com/profile.php?id=61594135332279",
+  ],
   aggregateRating: {
     "@type": "AggregateRating",
     ratingValue: "4.8",
