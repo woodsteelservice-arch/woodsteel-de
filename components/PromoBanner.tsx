@@ -5,14 +5,23 @@ import Link from "next/link";
 import { ArrowRight, X } from "lucide-react";
 import { cn } from "@/lib/utils";
 
-const DEADLINE_KEY = "ws-promo-deadline-v1";
-const CAMPAIGN_DAYS = 30;
 const SHOW_AFTER_MS = 1200;
 
 type Remaining = { days: number; hours: number; minutes: number; seconds: number };
 
-function remainingFrom(deadline: number): Remaining {
-  const diff = Math.max(0, deadline - Date.now());
+/**
+ * Koniec aktuálneho kalendárneho mesiaca (polnoc na 1. deň nasledujúceho
+ * mesiaca v lokálnom čase). Akcia tak vždy vyprší s koncom mesiaca a od
+ * 1. dňa nového mesiaca začne odpočet automaticky odznova.
+ */
+function endOfCurrentMonth(now: number): number {
+  const d = new Date(now);
+  return new Date(d.getFullYear(), d.getMonth() + 1, 1, 0, 0, 0, 0).getTime();
+}
+
+function remainingNow(): Remaining {
+  const now = Date.now();
+  const diff = Math.max(0, endOfCurrentMonth(now) - now);
   return {
     days: Math.floor(diff / 86_400_000),
     hours: Math.floor((diff / 3_600_000) % 24),
@@ -23,25 +32,18 @@ function remainingFrom(deadline: number): Remaining {
 
 /**
  * Uvítací banner s odpočtom akcie. Ukáže sa pri každom načítaní úvodnej
- * stránky. Termín akcie je uložený natrvalo, takže odpočet medzi
- * návštevami plynie ďalej a neresetuje sa.
+ * stránky. Odpočet beží vždy do konca aktuálneho mesiaca a 1. dňa
+ * ďalšieho mesiaca sa sám reštartuje — nič sa neukladá do úložiska.
  */
 export function PromoBanner() {
   const [open, setOpen] = useState(false);
   const [left, setLeft] = useState<Remaining | null>(null);
 
   useEffect(() => {
-    let deadline: number;
-    try {
-      const stored = localStorage.getItem(DEADLINE_KEY);
-      deadline = stored ? Number(stored) : Date.now() + CAMPAIGN_DAYS * 86_400_000;
-      if (!stored) localStorage.setItem(DEADLINE_KEY, String(deadline));
-    } catch {
-      return; // súkromný režim bez úložiska — banner preskočíme
-    }
-
-    const first = window.setTimeout(() => setLeft(remainingFrom(deadline)), 0);
-    const timer = window.setInterval(() => setLeft(remainingFrom(deadline)), 1000);
+    // Zostatok sa počíta pri každom tiku nanovo, takže o polnoci na prelome
+    // mesiacov odpočet plynulo preskočí na nový mesiac bez obnovenia stránky.
+    const first = window.setTimeout(() => setLeft(remainingNow()), 0);
+    const timer = window.setInterval(() => setLeft(remainingNow()), 1000);
     const entrance = window.setTimeout(() => setOpen(true), SHOW_AFTER_MS);
 
     return () => {
