@@ -58,7 +58,7 @@ export async function POST(request: Request) {
           "",
           "WS Wintergarten — Woodsteel SK s. r. o.",
         ].join("\n"),
-        attachments: [{ filename: "woodsteel-katalog.pdf", path: pdfUrl }],
+        attachments: [{ filename: "WS Wintergarten.pdf", path: pdfUrl }],
       }),
     });
 

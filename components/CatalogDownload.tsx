@@ -33,7 +33,7 @@ export function CatalogDownload() {
     // Katalóg doručíme okamžite aj do prehliadača, nech ho má používateľ hneď
     const link = document.createElement("a");
     link.href = pdfUrl;
-    link.download = "woodsteel-katalog.pdf";
+    link.download = "WS Wintergarten.pdf";
     document.body.appendChild(link);
     link.click();
     link.remove();

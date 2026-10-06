@@ -18,13 +18,15 @@ type Doc = {
   size: string;
   note: string;
   type: "pdf" | "docx";
+  saveAs?: string;
 };
 
 const docs: Doc[] = [
   {
     title: "WS Wintergarten Katalog",
     file: "/download/woodsteel-katalog-de.pdf",
-    size: "9,2 MB",
+    size: "23 MB",
+    saveAs: "WS Wintergarten.pdf",
     note: "Vollständiger Produktkatalog — Pergolen, Wintergärten, Verglasung, Zubehör",
     type: "pdf",
   },
@@ -76,6 +78,7 @@ export default function NaStiahnutiePage() {
               <a
                 key={d.file}
                 href={d.file}
+                download={d.saveAs}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex items-center gap-5 p-5 lg:p-6 bg-white border border-cream rounded-2xl hover:border-gold/40 hover:shadow-[0_8px_24px_rgba(63,34,17,0.06)] hover:-translate-y-0.5 transition-all"
