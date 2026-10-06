@@ -134,7 +134,7 @@ export function CatalogDownload() {
                       type="email"
                       name="email"
                       required
-                      placeholder="ihre@adresse.at"
+                      placeholder="ihre@adresse.de"
                       aria-label="E-mail"
                       className="flex-1 min-w-0 rounded-full bg-white/95 px-5 py-3.5 text-charcoal placeholder:text-mutedbrand/60 outline-none ring-1 ring-transparent transition-all focus:ring-2 focus:ring-gold"
                     />

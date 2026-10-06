@@ -385,7 +385,7 @@ export function InquiryForm({ variant = "card", defaultProduct = "" }: Props) {
           <Field label="Vor- und Nachname *" name="name" required placeholder="Max Mustermann" />
           <Field label="Telefon *" name="phone" type="tel" required placeholder="+43 660 1234567" />
           <div className="sm:col-span-2">
-            <Field label="E-Mail *" name="email" type="email" required placeholder="ihre@adresse.at" />
+            <Field label="E-Mail *" name="email" type="email" required placeholder="ihre@adresse.de" />
           </div>
           <label className="sm:col-span-2 flex items-start gap-3 text-xs text-mutedbrand cursor-pointer group/check">
           <input type="checkbox" name="consent" required className="peer sr-only" />
