@@ -4,10 +4,15 @@ import { FARBY, KRAJE, PRODUKTY } from "@/lib/vizualizace";
 /**
  * Kontaktné údaje, ktorými si návštevník odomyká vygenerovanú vizualizáciu.
  *
- * Ide tou istou cestou ako bežné dopyty z webu (`/api/lead`) — do Make scenára
- * „WOODSTEEL WEBLEADS → Woodsteel leads" — rovnako ako dopyty z webu.
- * Kľúče aj ich tvar sú preto zhodné s `/api/lead`, inak by scenár riadok
- * nenamapoval. Vizualizáciu v tabuľke rozlíšiš podľa stránky a poznámky.
+ * Ide do Make scenára „WS WINTERGARTEN VIZUALIZACIA → WS Wintergarten leads
+ * (hárok Leady)", ktorý zapíše riadok do tabuľky **WS Wintergarten leads**.
+ * Bežné dopyty z kontaktného formulára (`/api/lead`) idú inam — do WOODSTEEL DE
+ * LEADS, hárok WEB2026. Sú to dve nezávislé cesty a dva rôzne webhooky.
+ *
+ * Stĺpce hárku Leady (A–J):
+ *   A meno · B e-mail · C telefón · D produkt · E termín realizácie
+ *   F obhliadka zdarma · G miesto · H poznámky · I ID leadu · J zdroj
+ * Stĺpce E a F vizualizácia nezisťuje, posielame ich prázdne.
  *
  * Pozor: `trailingSlash: true` v next.config.ts platí aj na API — klient musí
  * volať "/api/vizualizacia-lead/" so lomkou, inak dostane 308 redirect.
@@ -102,37 +107,27 @@ export async function POST(request: Request) {
     request.headers.get("x-real-ip") ||
     "";
 
+  // Kľúče zodpovedajú mapovaniu v Make scenári (2.meno, 2.email, …)
   const lead = {
-    datum: berlinTimestamp(),
-    lead_id: crypto.randomUUID(),
-    web: "wswintergarten.de",
-    stranka: "/vizualizacia/",
+    meno: safeForSheet(`${body.jmeno!.trim()} ${body.prijmeni!.trim()}`),
+    email: safeForSheet(body.email),
+    // Bez safeForSheet — to odstraňuje vedúce „+" a medzinárodná predvoľba
+    // je to jediné, čo tu na začiatku môže stáť.
+    telefon: normalizePhone(body.telefon!),
     produkt: safeForSheet(produkt?.nazev ?? "Visualisierung"),
     termin: "",
     obhliadka: "",
-    mesto: safeForSheet(body.kraj),
-    psc: "",
+    miesto: safeForSheet(body.kraj),
     poznamka: safeForSheet(
       farba ? `KI-Visualisierung — Farbe ${farba.nazev} (${farba.kod})` : "KI-Visualisierung"
     ),
-    meno: safeForSheet(`${body.jmeno!.trim()} ${body.prijmeni!.trim()}`),
-    telefon: safeForSheet(normalizePhone(body.telefon!)),
-    email: safeForSheet(body.email),
-    suhlas: "áno",
-    utm_source: "",
-    utm_medium: "",
-    utm_campaign: "",
-    utm_term: "",
-    utm_content: "",
-    gclid: "",
-    referrer: "",
-    user_agent: safeForSheet(request.headers.get("user-agent")),
-    ip,
+    lead_id: crypto.randomUUID(),
+    zdroj: `wswintergarten.de/vizualizacia | ${berlinTimestamp()} | IP ${ip}`,
   };
 
-  const makeUrl = process.env.MAKE_WEBHOOK_URL;
+  const makeUrl = process.env.MAKE_WEBHOOK_VIZU_URL;
   if (!makeUrl) {
-    console.error("[vizu-lead] MAKE_WEBHOOK_URL nie je nastavená — lead sa nezapísal:", lead);
+    console.error("[vizu-lead] MAKE_WEBHOOK_VIZU_URL nie je nastavená — lead sa nezapísal:", lead);
     return NextResponse.json({ error: "Senden fehlgeschlagen." }, { status: 502 });
   }
 
