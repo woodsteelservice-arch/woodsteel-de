@@ -266,4 +266,5 @@ export const navigation = [
   { label: "Über uns", href: "/o-nas" },
   { label: "FAQ", href: "/faq" },
   { label: "Kontakt", href: "/kontakt" },
+  { label: "Visualisierung", href: "/vizualizacia" },
 ];

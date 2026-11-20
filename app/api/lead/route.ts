@@ -113,7 +113,7 @@ export async function POST(request: Request) {
   const lead = {
     datum: bratislavaTimestamp(),
     lead_id: crypto.randomUUID(),
-    web: "woodsteel.sk",
+    web: "wswintergarten.de",
     stranka: safeForSheet(body.page),
     produkt: safeForSheet(body.product),
     termin: safeForSheet(body.timing),

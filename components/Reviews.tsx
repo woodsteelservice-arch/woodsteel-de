@@ -28,7 +28,7 @@ export function Reviews() {
                 ))}
               </div>
               <p className="text-charcoal italic leading-relaxed text-[15px] flex-1">
-                „{r.text}"
+                „{r.text}&ldquo;
               </p>
               <div className="mt-5 sm:mt-6 pt-4 sm:pt-5 border-t border-cream/80">
                 <div className="font-display font-bold text-brown">{r.name}</div>

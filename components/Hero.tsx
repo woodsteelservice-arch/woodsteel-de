@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowRight, Zap, MapPin } from "lucide-react";
+import { ArrowRight, MapPin, Sparkles, Zap } from "lucide-react";
 
 export function Hero() {
   return (
@@ -62,10 +62,12 @@ export function Hero() {
               <ArrowRight size={18} className="transition-transform group-hover:translate-x-1" />
             </Link>
             <Link
-              href="#realizations"
-              className="inline-flex justify-center items-center gap-2 px-6 py-3.5 sm:px-7 sm:py-4 bg-transparent border border-white/40 hover:border-white text-white font-semibold rounded-full backdrop-blur-sm hover:bg-white/10 transition-all"
+              href="/vizualizacia"
+              className="group inline-flex justify-center items-center gap-2 px-6 py-3.5 sm:px-7 sm:py-4 bg-white/12 border border-white/45 hover:border-white text-white font-semibold rounded-full backdrop-blur-md hover:bg-white/20 transition-all"
             >
-              Referenzen ansehen
+              <Sparkles size={17} className="text-gold" />
+              Visualisierung kostenlos
+              <ArrowRight size={16} className="transition-transform group-hover:translate-x-1" />
             </Link>
           </div>
 

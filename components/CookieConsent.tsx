@@ -55,18 +55,23 @@ export function CookieConsent() {
   });
 
   useEffect(() => {
-    try {
-      const stored = localStorage.getItem(STORAGE_KEY);
-      if (!stored) {
+    // Stav čítame až po prvom vykreslení (localStorage na serveri neexistuje)
+    // a nastavujeme ho v ďalšom ráme, nech to nie je setState priamo v efekte.
+    const id = requestAnimationFrame(() => {
+      try {
+        const stored = localStorage.getItem(STORAGE_KEY);
+        if (!stored) {
+          setOpen(true);
+          return;
+        }
+        const parsed = JSON.parse(stored) as Consent;
+        setConsent(parsed);
+        setGtagConsent(parsed);
+      } catch {
         setOpen(true);
-        return;
       }
-      const parsed = JSON.parse(stored) as Consent;
-      setConsent(parsed);
-      setGtagConsent(parsed);
-    } catch {
-      setOpen(true);
-    }
+    });
+    return () => cancelAnimationFrame(id);
   }, []);
 
   useEffect(() => {
