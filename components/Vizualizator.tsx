@@ -201,6 +201,11 @@ export function Vizualizator() {
   const [aktivnaId, setAktivnaId] = useState<string | null>(null);
   /** Kontakt pýtame raz za návštevu — ďalšie varianty sa už neuzamykajú. */
   const [odemknuto, setOdemknuto] = useState(false);
+  /**
+   * Podpísaná vstupenka zo servera po odoslaní kontaktu. Bez nej server
+   * negeneruje — kontakt sa preto pýta PRED generovaním, nie po ňom.
+   */
+  const [vstupenka, setVstupenka] = useState<string | null>(null);
   const [chyba, setChyba] = useState<string | null>(null);
   const [formOtevren, setFormOtevren] = useState(false);
   const [postup, setPostup] = useState(0);
@@ -315,7 +320,12 @@ export function Vizualizator() {
     }
   }
 
-  async function generovat() {
+  async function generovat(platnaVstupenka: string | null = vstupenka) {
+    if (!platnaVstupenka) {
+      setChyba(null);
+      setFormOtevren(true);
+      return;
+    }
     setFaza("generuje");
     setPostup(0);
     setChyba(null);
@@ -325,9 +335,22 @@ export function Vizualizator() {
       const res = await fetch("/api/vizualizacia/", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ produkt, farba, prostredi, photo: fotka ?? undefined }),
+        body: JSON.stringify({
+          produkt,
+          farba,
+          prostredi,
+          photo: fotka ?? undefined,
+          vstupenka: platnaVstupenka,
+        }),
       });
       const json = await res.json();
+      if (res.status === 401 && json?.kontakt) {
+        // Vstupenka vypršala — kontakt si vypýtame znova.
+        setVstupenka(null);
+        setFaza("nastaveni");
+        setFormOtevren(true);
+        return;
+      }
       if (!res.ok) {
         setChyba(json?.error ?? "Die Visualisierung konnte nicht erstellt werden.");
         setFaza("nastaveni");
@@ -346,7 +369,9 @@ export function Vizualizator() {
       };
       setVarianty((v) => [...v, nova]);
       setAktivnaId(nova.id);
-      setFaza(odemknuto ? "odemceno" : "zamceno");
+      // Generuje sa až po kontakte, výsledok je teda vždy odomknutý.
+      setOdemknuto(true);
+      setFaza("odemceno");
     } catch {
       setChyba("Die Verbindung ist fehlgeschlagen. Bitte prüfen Sie Ihre Verbindung und versuchen es erneut.");
       setFaza("nastaveni");
@@ -552,7 +577,7 @@ export function Vizualizator() {
 
               <button
                 type="button"
-                onClick={generovat}
+                onClick={() => generovat()}
                 disabled={faza === "generuje"}
                 className="relative mt-8 w-full group inline-flex justify-center items-center gap-2 overflow-hidden px-6 py-4 bg-gold hover:bg-gold-hover disabled:bg-brown/15 disabled:text-brown/40 text-brown hover:text-white font-semibold rounded-full transition-all shadow-[0_8px_24px_rgba(203,171,88,0.35)] hover:shadow-[0_18px_40px_rgba(203,171,88,0.45)] hover:-translate-y-0.5 disabled:translate-y-0 disabled:shadow-none"
               >
@@ -871,10 +896,11 @@ export function Vizualizator() {
           produktNazev={produktData.nazev}
           farbaNazev={farbaData.nazev}
           onZavrit={() => setFormOtevren(false)}
-          onHotovo={() => {
+          onHotovo={(novaVstupenka) => {
             setFormOtevren(false);
             setOdemknuto(true);
-            setFaza("odemceno");
+            setVstupenka(novaVstupenka);
+            generovat(novaVstupenka);
           }}
         />
       )}
@@ -914,7 +940,7 @@ function OdemykaciFormular({
   produktNazev: string;
   farbaNazev: string;
   onZavrit: () => void;
-  onHotovo: () => void;
+  onHotovo: (vstupenka: string) => void;
 }) {
   const [jmeno, setJmeno] = useState("");
   const [prijmeni, setPrijmeni] = useState("");
@@ -926,6 +952,7 @@ function OdemykaciFormular({
 
   const [odesila, setOdesila] = useState(false);
   const [chyby, setChyby] = useState<string[]>([]);
+  const [chybaOdoslania, setChybaOdoslania] = useState<string | null>(null);
 
   async function odeslat(e: React.FormEvent) {
     e.preventDefault();
@@ -940,8 +967,9 @@ function OdemykaciFormular({
     if (nove.length > 0) return;
 
     setOdesila(true);
+    setChybaOdoslania(null);
     try {
-      await fetch("/api/vizualizacia-lead/", {
+      const res = await fetch("/api/vizualizacia-lead/", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
@@ -956,12 +984,20 @@ function OdemykaciFormular({
           website,
         }),
       });
+      const json = await res.json().catch(() => null);
+      // Vstupenku server vydá aj vtedy, keď sa lead nepodarí zapísať do Make
+      // (je v logu) — návštevník kvôli našej chybe o vizualizáciu nepríde.
+      if (typeof json?.vstupenka === "string") {
+        setOdesila(false);
+        onHotovo(json.vstupenka);
+        return;
+      }
+      if (Array.isArray(json?.fields)) setChyby(json.fields);
+      setChybaOdoslania(json?.error ?? "Senden fehlgeschlagen. Bitte versuchen Sie es erneut.");
     } catch {
-      // Lead sa nepodarilo odoslať, ale návštevníkovi vizualizáciu neberieme —
-      // chyba je zalogovaná na serveri.
+      setChybaOdoslania("Verbindung fehlgeschlagen. Bitte prüfen Sie Ihre Verbindung und versuchen Sie es erneut.");
     }
     setOdesila(false);
-    onHotovo();
   }
 
   const chybny = (pole: string) => chyby.includes(pole);
@@ -1001,10 +1037,10 @@ function OdemykaciFormular({
             <Sparkles size={19} className="text-gold" />
           </span>
           <h2 id="vizu-form-titulek" className="mt-4 font-display text-2xl font-bold text-brown">
-            Noch ein Schritt, dann ist sie Ihre
+            Noch ein Schritt, dann erstellen wir sie
           </h2>
           <p className="mt-2 text-sm leading-relaxed text-mutedbrand">
-            Kontaktdaten eingeben und die Visualisierung wird sofort freigeschaltet.
+            Kontaktdaten eingeben und wir erstellen die Visualisierung sofort.
             Wir melden uns mit einem Preisrahmen für <span className="font-semibold text-brown">{produktNazev}</span> in{" "}
             <span className="font-semibold text-brown">{farbaNazev}</span>.
           </p>
@@ -1119,6 +1155,9 @@ function OdemykaciFormular({
                 Bitte prüfen Sie die markierten Felder.
               </p>
             )}
+            {chybaOdoslania && chyby.length === 0 && (
+              <p className="text-xs text-red-700">{chybaOdoslania}</p>
+            )}
 
             <button
               type="submit"
@@ -1132,7 +1171,7 @@ function OdemykaciFormular({
                 </>
               ) : (
                 <>
-                  Visualisierung anzeigen
+                  Visualisierung erstellen
                   <ArrowRight size={16} className="transition-transform group-hover:translate-x-1" />
                 </>
               )}

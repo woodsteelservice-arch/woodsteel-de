@@ -1,4 +1,5 @@
 import type { NextConfig } from "next";
+import { withBotId } from "botid/next/config";
 import { blogPosts } from "./lib/blog";
 
 const nextConfig: NextConfig = {
@@ -21,4 +22,6 @@ const nextConfig: NextConfig = {
   },
 };
 
-export default nextConfig;
+// BotID (Vercel) — neviditeľná ochrana proti botom pre AI vizualizáciu.
+// Pridáva proxy cesty pre klientsky skript; kontrola beží v API cez checkBotId().
+export default withBotId(nextConfig);

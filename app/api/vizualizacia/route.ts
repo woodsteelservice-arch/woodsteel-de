@@ -1,7 +1,15 @@
 import { readdir, readFile } from "fs/promises";
 import path from "path";
 import { NextResponse } from "next/server";
+import { checkBotId } from "botid/server";
 import { PRODUKTY, FARBY, PROSTREDI, type ProduktVizu } from "@/lib/vizualizace";
+import {
+  ipZPoziadavky,
+  overVstupenku,
+  rezervujGemini,
+  rezervujGenerovanie,
+  vratRezervaciu,
+} from "@/lib/vizu-ochrana";
 
 export const runtime = "nodejs";
 // Nano Banana 2.1 vracia obrázok typicky za 20–60 s.
@@ -15,7 +23,11 @@ export const maxDuration = 300;
  * keď je fal účet bez kreditu. Rozlíšenie držíme na 1K.
  *
  * POZOR: na rozdiel od interného nástroja tu NIE je prihlásenie, takže každý
- * request niečo stojí. Preto je nižšie jednoduchý rate limit podľa IP.
+ * request niečo stojí. Ochrana (v tomto poradí):
+ *   1. Vercel BotID — skripty bez prehliadača neprejdú,
+ *   2. vstupenka — generuje sa až po odoslaní kontaktu (lib/vizu-ochrana.ts),
+ *   3. denné limity spoločné pre .sk/.cz/.de — 5 na IP, 50 spolu, Gemini 20
+ *      (počítadlo v woodsteel-pricing, `/api/vizu-kvota`).
  *
  * Pozor 2: `trailingSlash: true` v next.config.ts platí aj na API — klient musí
  * volať "/api/vizualizacia/" so lomkou, inak dostane 308 redirect.
@@ -41,31 +53,6 @@ type Vysledok = { image: string } | { chyba: string; status: number };
 
 const norm = (s: string) =>
   s.toLowerCase().normalize("NFD").replace(/[̀-ͯ]/g, "");
-
-// ── Rate limit ────────────────────────────────────────────────────────────
-
-/**
- * Jednoduchý limit v pamäti inštancie. Nie je to neprierazná ochrana
- * (Vercel škáluje na viac inštancií), ale zastaví bežné preklikávanie.
- */
-const HITS = new Map<string, number[]>();
-const LIMIT = Number(process.env.VIZU_RATE_LIMIT ?? 6);
-const OKNO_MS = 60 * 60 * 1000;
-
-function prekrocenyLimit(ip: string): boolean {
-  const teraz = Date.now();
-  const predosle = (HITS.get(ip) ?? []).filter((t) => teraz - t < OKNO_MS);
-  if (predosle.length >= LIMIT) {
-    HITS.set(ip, predosle);
-    return true;
-  }
-  predosle.push(teraz);
-  HITS.set(ip, predosle);
-  if (HITS.size > 5000) {
-    for (const [k, v] of HITS) if (v.every((t) => teraz - t >= OKNO_MS)) HITS.delete(k);
-  }
-  return false;
-}
 
 // ── Referenčné fotky realizácií ───────────────────────────────────────────
 
@@ -221,21 +208,29 @@ const falBezKreditu = (chyba: string) => /locked|top.?up|balance|exhausted|credi
 
 // ── Route ─────────────────────────────────────────────────────────────────
 
-export async function POST(request: Request) {
-  const ip =
-    request.headers.get("x-forwarded-for")?.split(",")[0]?.trim() ||
-    request.headers.get("x-real-ip") ||
-    "neznama";
+/** Base64 fotka z prehliadača — klient ju zmenšuje, väčšia znamená, že niekto obchádza web. */
+const MAX_FOTKA_ZNAKOV = 4_000_000;
 
-  if (prekrocenyLimit(ip)) {
-    return NextResponse.json(
-      { error: "Sie haben schon mehrere Visualisierungen erstellt. Bitte versuchen Sie es in einer Stunde noch einmal oder schreiben Sie uns direkt — wir erstellen Ihren Entwurf gern persönlich." },
-      { status: 429 }
-    );
+const HLASKY = {
+  bot: "Die Anfrage konnte nicht überprüft werden. Bitte laden Sie die Seite neu und versuchen Sie es erneut.",
+  vstupenka: "Bitte geben Sie zuerst Ihre Kontaktdaten ein — die Visualisierung erstellen wir direkt danach.",
+  ip: "Sie haben heute bereits die maximale Anzahl an Visualisierungen erstellt. Bitte versuchen Sie es morgen wieder oder schreiben Sie uns direkt — wir erstellen Ihren Entwurf gern persönlich.",
+  den: "Die heutige Kapazität für KI-Visualisierungen ist erschöpft. Bitte versuchen Sie es morgen wieder oder schreiben Sie uns — wir erstellen Ihren Entwurf gern persönlich.",
+  chyba: "Die Visualisierung konnte gerade nicht erstellt werden. Bitte versuchen Sie es noch einmal.",
+};
+
+export async function POST(request: Request) {
+  const overenie = await checkBotId();
+  if (overenie.isBot) {
+    return NextResponse.json({ error: HLASKY.bot }, { status: 403 });
   }
 
   const body = await request.json().catch(() => null);
   if (!body) return NextResponse.json({ error: "Ungültige Anfrage." }, { status: 400 });
+
+  if (!overVstupenku(body.vstupenka)) {
+    return NextResponse.json({ error: HLASKY.vstupenka, kontakt: true }, { status: 401 });
+  }
 
   const produkt = PRODUKTY.find((p) => p.kod === body.produkt);
   const farba = FARBY.find((f) => f.kod === body.farba);
@@ -243,9 +238,20 @@ export async function POST(request: Request) {
     return NextResponse.json({ error: "Bitte wählen Sie Produkt und Farbe." }, { status: 400 });
   }
 
+  if (typeof body.photo === "string" && body.photo.length > MAX_FOTKA_ZNAKOV) {
+    return NextResponse.json({ error: "Das Foto ist zu groß. Bitte versuchen Sie ein anderes." }, { status: 413 });
+  }
   const house = typeof body.photo === "string" ? dataUrlToInline(body.photo) : null;
   if (typeof body.photo === "string" && !house) {
     return NextResponse.json({ error: "Das Foto konnte nicht geladen werden. Bitte versuchen Sie ein anderes." }, { status: 400 });
+  }
+
+  // Až teraz, keď je požiadavka v poriadku, si rezervujeme kus z denného limitu.
+  const ip = ipZPoziadavky(request);
+  const kvota = await rezervujGenerovanie(ip);
+  if (!kvota.ok) {
+    const dovod = kvota.dovod === "ip" || kvota.dovod === "den" ? kvota.dovod : "chyba";
+    return NextResponse.json({ error: HLASKY[dovod] }, { status: dovod === "chyba" ? 503 : 429 });
   }
 
   const refs = await loadReferencePhotos(produkt.kod, farba.refKeyword, REF_LIMIT);
@@ -264,17 +270,23 @@ export async function POST(request: Request) {
     extra = { aspect_ratio: "4:3" };
   }
 
+  let gemini = false;
   let vysledok: Vysledok = await callFal(prompt, images, extra);
   if ("chyba" in vysledok && (falBezKreditu(vysledok.chyba) || vysledok.status === 500)) {
-    console.error("[vizualizacia] fal nedostupný → fallback na Gemini:", vysledok.chyba);
-    vysledok = await callGemini(prompt, images);
+    // Záložný Gemini sa účtuje dodatočne (bez predplateného stropu) — má vlastný denný limit.
+    const g = await rezervujGemini(ip);
+    if (g.ok) {
+      gemini = true;
+      console.error("[vizualizacia] fal nedostupný → fallback na Gemini:", vysledok.chyba);
+      vysledok = await callGemini(prompt, images);
+    } else {
+      console.error("[vizualizacia] fal nedostupný a Gemini limit je vyčerpaný:", vysledok.chyba);
+    }
   }
 
   if ("chyba" in vysledok) {
-    return NextResponse.json(
-      { error: "Die Visualisierung konnte gerade nicht erstellt werden. Bitte versuchen Sie es noch einmal." },
-      { status: 502 }
-    );
+    await vratRezervaciu(ip, gemini);
+    return NextResponse.json({ error: HLASKY.chyba }, { status: 502 });
   }
 
   return NextResponse.json({ image: vysledok.image });

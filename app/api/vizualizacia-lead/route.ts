@@ -1,5 +1,7 @@
 import { NextResponse } from "next/server";
+import { checkBotId } from "botid/server";
 import { FARBY, KRAJE, PRODUKTY } from "@/lib/vizualizace";
+import { vydajVstupenku } from "@/lib/vizu-ochrana";
 
 /**
  * Kontaktné údaje, ktorými si návštevník odomyká vygenerovanú vizualizáciu.
@@ -13,6 +15,11 @@ import { FARBY, KRAJE, PRODUKTY } from "@/lib/vizualizace";
  *   A meno · B e-mail · C telefón · D produkt · E termín realizácie
  *   F obhliadka zdarma · G miesto · H poznámky · I ID leadu · J zdroj
  * Stĺpce E a F vizualizácia nezisťuje, posielame ich prázdne.
+ *
+ * Kontakt sa posiela PRED generovaním: odpoveď nesie `vstupenka` (podpísaná,
+ * platí pár hodín), bez ktorej `/api/vizualizacia/` nič nevygeneruje — viď
+ * lib/vizu-ochrana.ts. Vstupenku vydáme aj keď zlyhá Make (lead je potom
+ * v logu Vercelu), aby návštevník kvôli našej chybe neprišiel o vizualizáciu.
  *
  * Pozor: `trailingSlash: true` v next.config.ts platí aj na API — klient musí
  * volať "/api/vizualizacia-lead/" so lomkou, inak dostane 308 redirect.
@@ -73,6 +80,11 @@ function berlinTimestamp(): string {
 }
 
 export async function POST(request: Request) {
+  const overenie = await checkBotId();
+  if (overenie.isBot) {
+    return NextResponse.json({ error: "Die Anfrage konnte nicht überprüft werden. Bitte laden Sie die Seite neu und versuchen Sie es erneut." }, { status: 403 });
+  }
+
   let body: VizuLeadPayload;
   try {
     body = (await request.json()) as VizuLeadPayload;
@@ -125,10 +137,12 @@ export async function POST(request: Request) {
     zdroj: `wswintergarten.de/vizualizacia | ${berlinTimestamp()} | IP ${ip}`,
   };
 
+  const vstupenka = vydajVstupenku();
+
   const makeUrl = process.env.MAKE_WEBHOOK_VIZU_URL;
   if (!makeUrl) {
     console.error("[vizu-lead] MAKE_WEBHOOK_VIZU_URL nie je nastavená — lead sa nezapísal:", lead);
-    return NextResponse.json({ error: "Senden fehlgeschlagen." }, { status: 502 });
+    return NextResponse.json({ error: "Senden fehlgeschlagen.", vstupenka }, { status: 502 });
   }
 
   try {
@@ -146,12 +160,12 @@ export async function POST(request: Request) {
     if (!response.ok) {
       const detail = await response.text();
       console.error("[vizu-lead] Make odmietol požiadavku:", response.status, detail, lead);
-      return NextResponse.json({ error: "Senden fehlgeschlagen." }, { status: 502 });
+      return NextResponse.json({ error: "Senden fehlgeschlagen.", vstupenka }, { status: 502 });
     }
   } catch (error) {
     console.error("[vizu-lead] Volanie na Make zlyhalo:", error, lead);
-    return NextResponse.json({ error: "Senden fehlgeschlagen." }, { status: 502 });
+    return NextResponse.json({ error: "Senden fehlgeschlagen.", vstupenka }, { status: 502 });
   }
 
-  return NextResponse.json({ ok: true });
+  return NextResponse.json({ ok: true, vstupenka });
 }
