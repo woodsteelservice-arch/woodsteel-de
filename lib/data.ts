@@ -37,6 +37,35 @@ export const realizations: {
   category: string;
   image: string;
 }[] = [
+  // Neue Projekte — bewusst ohne Ortsangabe, nur mit Kategorie.
+  {
+    category: "Holz-Wintergarten",
+    image: "/images/holz-wintergarten-neu-01.jpeg",
+  },
+  {
+    category: "Wintergarten",
+    image: "/images/wintergarten-neu-01.jpeg",
+  },
+  {
+    category: "Wintergarten",
+    image: "/images/wintergarten-neu-02.jpeg",
+  },
+  {
+    category: "Wintergarten",
+    image: "/images/wintergarten-neu-03.jpeg",
+  },
+  {
+    category: "Wintergarten",
+    image: "/images/wintergarten-neu-04.jpeg",
+  },
+  {
+    category: "Wintergarten",
+    image: "/images/wintergarten-neu-05.jpeg",
+  },
+  {
+    category: "Wintergarten",
+    image: "/images/wintergarten-neu-06.jpeg",
+  },
   {
     category: "Aluminium-Pergola",
     image:
