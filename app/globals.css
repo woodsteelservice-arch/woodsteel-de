@@ -364,6 +364,63 @@
   }
   @keyframes ws-sign-pool { from { opacity: 0; } to { opacity: 1; } }
   @keyframes ws-sign-rise { from { opacity: 0.35; } to { opacity: 1; } }
+  /* ── Vianočný banner: sneženie a mikulášska čiapka ─────────────────────── */
+
+  /* Vrstva so snehom sa objaví len s bannerom, preto sa aj plynulo rozsvieti */
+  .ws-snow-layer { animation: ws-snow-layer 1.4s ease-out both; }
+  @keyframes ws-snow-layer {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+  }
+
+  /* Vločka: vonkajší obal padá, vnútorný sa kolíše do strán */
+  .ws-snow {
+    position: absolute;
+    top: -12vh;
+    animation-name: ws-snow-fall;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+    will-change: transform;
+  }
+  @keyframes ws-snow-fall {
+    from { transform: translate3d(0, 0, 0); }
+    to   { transform: translate3d(0, 124vh, 0); }
+  }
+  .ws-snow-sway {
+    display: block;
+    height: 100%;
+    width: 100%;
+    border-radius: 9999px;
+    background: radial-gradient(circle at 32% 30%, #ffffff, rgba(255, 255, 255, 0.72));
+    box-shadow: 0 0 6px rgba(255, 255, 255, 0.5);
+    animation-name: ws-snow-sway;
+    animation-timing-function: ease-in-out;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+    will-change: transform;
+  }
+  @keyframes ws-snow-sway {
+    from { transform: translateX(calc(var(--ws-sway, 10px) * -1)); }
+    to   { transform: translateX(var(--ws-sway, 10px)); }
+  }
+
+  /* Záprah preletí ponad stránku a „donesie" banner */
+  .ws-sleigh { animation: ws-sleigh 3.2s cubic-bezier(0.36, 0.1, 0.58, 0.95) both; }
+  @keyframes ws-sleigh {
+    0%   { opacity: 0; transform: translate3d(-44vw, 18px, 0) scale(0.9); }
+    12%  { opacity: 1; }
+    48%  { transform: translate3d(26vw, -18px, 0) scale(1); }
+    84%  { opacity: 1; }
+    100% { opacity: 0; transform: translate3d(118vw, 8px, 0) scale(0.94); }
+  }
+
+  /* Karta „doručená" záprahom — klesne zhora presne keď je nad ňou */
+  .ws-banner-drop { animation: ws-banner-drop 0.85s cubic-bezier(0.16, 1, 0.3, 1); }
+  @keyframes ws-banner-drop {
+    0%   { transform: translateY(-26px) scale(0.92); }
+    60%  { transform: translateY(0) scale(1.02); }
+    100% { transform: translateY(0) scale(1); }
+  }
 }
 
 /* Používatelia s obmedzeným pohybom dostanú obsah bez animácií */
@@ -390,10 +447,13 @@
   .ws-sign-layer--edge {
     animation: none !important;
   }
+  .ws-snow-layer { display: none !important; }
+  .ws-sleigh { display: none !important; }
   .ws-slide-in,
   .ws-pop,
   .ws-rise,
-  .ws-banner-in {
+  .ws-banner-in,
+  .ws-banner-drop {
     animation-duration: 0.01ms !important;
   }
   .ws-reveal {
